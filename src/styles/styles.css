@@ -1,4 +1,8 @@
 /* styles.css */
+:root {
+    --background-color: black;
+}
+
 body {
-    background-color: rebeccapurple;
+    background-color: black;
 }
