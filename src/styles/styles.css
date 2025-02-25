@@ -1,8 +1,54 @@
 /* styles.css */
 :root {
+    --2px: 0.125rem;
     --background-color: black;
+    --main-border-color: white;
 }
 
 body {
-    background-color: black;
+    background-color: var(--background-color);
+    color: white;
+}
+
+#main-container {
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "header header header"
+    "content content content"
+    "footer footer footer";
+    grid-template-rows: 2fr 20fr 1.5fr;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+header {
+    grid-area: header;
+    border-bottom: var(--2px) solid var(--main-border-color);
+}
+
+#content {
+    display: grid;
+    grid-template-areas: 
+    "left middle right";
+    grid-template-columns: 2fr 5fr 2fr;
+    grid-area: content;
+}
+
+#content-left {
+    grid-area: left;
+    border-right: var(--2px) solid var(--main-border-color);
+}
+
+#content-middle {
+    grid-area: middle;
+    border-right: var(--2px) solid var(--main-border-color);
+}
+
+#content-right {
+    grid-area: right;
+}
+
+footer {
+    grid-area: footer;
+    border-top: var(--2px) solid var(--main-border-color);
 }
