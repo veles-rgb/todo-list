@@ -12,24 +12,39 @@ function renderTodos() {
     TodoList.getTodos().forEach((todo, index) => {
         // Create todo element
         const todoElement = document.createElement("div");
-        todoElement.textContent = `${todo.name} - ${todo.status} - ${todo.priority}`;
+        todoElement.textContent = `${todo.name} - ${todo.status}`;
         todoElement.classList.add("todo-item");
 
         // Add index to dataset
         todoElement.dataset.index = index;
 
+        // Create edit button
+        const editBtn = document.createElement("button");
+        editBtn.textContent = "✎";
+        editBtn.addEventListener("click", () => TodoEditHandler(index));
+
         // Create delete button
         const deleteBtn = document.createElement("button")
-        deleteBtn.textContent = "X";
-        deleteBtn.addEventListener("click", () => deleteHandler(index));
+        deleteBtn.textContent = "🗑";
+        deleteBtn.addEventListener("click", () => TodoDeleteHandler(index));
 
+        // Append children
+        todoElement.appendChild(editBtn);
         todoElement.appendChild(deleteBtn);
         todoContainer.appendChild(todoElement);
     });
 };
 
+// Find index and edit Todo name with prompt
+function TodoEditHandler(index) {
+    const newName = prompt("New name:");
+    const todo = TodoList.getTodos()[index];
+    todo.editTodo(newName);
+    renderTodos();
+};
+
 // Find index and delete todo from TodoList
-function deleteHandler(index) {
+function TodoDeleteHandler(index) {
     const todo = TodoList.getTodos()[index];
     TodoList.deleteTodo(todo);
     renderTodos();
@@ -38,12 +53,13 @@ function deleteHandler(index) {
 AddTodoBtn.addEventListener("click", () => {
     const name = prompt("Todo name:");
     const status = prompt("Status:");
-    const priority = prompt("Priority:")
 
     if (name) {
-        TodoList.addTodo(name, status, priority);
+        TodoList.addTodo(name, status);
         renderTodos();
     };
 });
+
+// Task handlers
 
 export { renderTodos };

@@ -1,16 +1,14 @@
 // todo.js
+
 // Create todo object (project)
 class Todo {
-    constructor(name, status, priority) {
+    constructor(name, status) {
         this.name = name;
         this.status = status;
-        this.priority = priority;
     };
 
-    editToto(newName, newStatus, newPriority) {
+    editTodo(newName) {
         this.name = newName;
-        this.status = newStatus;
-        this.priority = newPriority;
     };
 };
 
@@ -20,8 +18,8 @@ class TodoList {
         this.todos = [];
     };
 
-    addTodo(name, status, priority) {
-        const newTodo = new Todo(name, status, priority);
+    addTodo(name, status) {
+        const newTodo = new Todo(name, status);
         this.todos.push(newTodo);
         return newTodo;
     };

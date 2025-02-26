@@ -5,5 +5,5 @@ import TodoList from "./modules/todo.js";
 import { renderTodos } from "./modules/dom.js";
 
 
-TodoList.addTodo("Build A House", "Incomplete", "!!!")
+TodoList.addTodo("Build A House", "Incomplete");
 renderTodos();
