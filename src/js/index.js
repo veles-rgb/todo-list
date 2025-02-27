@@ -2,8 +2,16 @@
 import "../styles/reset.css"
 import "../styles/styles.css";
 import TodoList from "./modules/todo.js";
-import { renderTodos } from "./modules/dom.js";
+import Task from "./modules/task.js";
+import { renderTasks, renderTodos, renderInfo } from "./modules/dom.js";
 
+function addDefault() {
+    const defaultTodo = TodoList.addTodo("Make A Todo App", "Incomplete");
+    defaultTodo.tasks.push(new Task("Title", "Description", "dueDate", "Priority"));
+    console.log(defaultTodo.tasks);
+};
 
-TodoList.addTodo("Build A House", "Incomplete");
+addDefault();
 renderTodos();
+renderTasks();
+// renderInfo(); 
