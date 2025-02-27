@@ -8,10 +8,9 @@ import { renderTasks, renderTodos, renderInfo } from "./modules/dom.js";
 function addDefault() {
     const defaultTodo = TodoList.addTodo("Make A Todo App", "Incomplete");
     defaultTodo.tasks.push(new Task("Title", "Description", "dueDate", "Priority"));
-    console.log(defaultTodo.tasks);
 };
 
 addDefault();
 renderTodos();
 renderTasks();
-// renderInfo(); 
+renderInfo();

@@ -4,13 +4,14 @@
  |______|    | | | |  | | |  | | |  | | |______|
              | | | |__| | |__| | |__| |         
              |_|  \____/|_____/ \____/          
-                                         
+                  
 1. Todo Stuff
     - Figure out how to make a Todo selectable with an active-todo class
     - When active, remove active-todo class from all other Todos
     - When active, change the task-container display to show only the active Todo's tasks
 
 2. Task Stuff
+    - Make the Task class work
     - Add functionality to renderTasks() in dom.js
         - Add an addTaskBtn in html to add tasks to the currently active todo's tasks
         - forEach task in a todo, create an li input checkbox that is stored in a ul

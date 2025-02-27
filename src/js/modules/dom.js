@@ -68,9 +68,9 @@ function renderTasks() {
 
 // addTaskBtn event listener (add to active todo's tasks)
 
-// Edit task
+// Edit task handler
 
-// Delete task
+// Delete task handler
 
 function renderInfo() {
     infoContainer.innerHTML = "";
