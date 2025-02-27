@@ -1,65 +1,79 @@
-// DomEvents.js
 import TodoList from "./todo.js";
+import Task from "./task.js";
 
 const todoContainer = document.getElementById("todo-container");
-const AddTodoBtn = document.getElementById("add-todo");
+const taskContainer = document.getElementById("task-container");
+const infoContainer = document.getElementById("info-container");
+const addTodoBtn = document.getElementById("add-todo");
 
-
-// Todo handlers
+// RENDER TODOS
 function renderTodos() {
     todoContainer.innerHTML = "";
-
-    TodoList.getTodos().forEach((todo, index) => {
-        // Create todo element
+    
+    TodoList.getTodos().forEach((todo, todoIndex) => {
         const todoElement = document.createElement("div");
         todoElement.textContent = `${todo.name} - ${todo.status}`;
         todoElement.classList.add("todo-item");
+        todoElement.dataset.index = todoIndex;
 
-        // Add index to dataset
-        todoElement.dataset.index = index;
-
-        // Create edit button
         const editBtn = document.createElement("button");
         editBtn.textContent = "✎";
-        editBtn.addEventListener("click", () => TodoEditHandler(index));
+        editBtn.addEventListener("click", () => TodoEditHandler(todoIndex));
 
-        // Create delete button
-        const deleteBtn = document.createElement("button")
+        const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "🗑";
-        deleteBtn.addEventListener("click", () => TodoDeleteHandler(index));
+        deleteBtn.addEventListener("click", () => {
+            TodoDeleteHandler(todoIndex);
+        });
 
-        // Append children
         todoElement.appendChild(editBtn);
         todoElement.appendChild(deleteBtn);
         todoContainer.appendChild(todoElement);
     });
-};
 
-// Find index and edit Todo name with prompt
+    renderTasks();
+}
+
+// Edit Todo Name
 function TodoEditHandler(index) {
     const newName = prompt("New name:");
     const todo = TodoList.getTodos()[index];
-    todo.editTodo(newName);
-    renderTodos();
-};
+    if (todo) {
+        todo.editTodo(newName);
+        renderTodos();
+    }
+}
 
-// Find index and delete todo from TodoList
+// Delete Todo
 function TodoDeleteHandler(index) {
-    const todo = TodoList.getTodos()[index];
-    TodoList.deleteTodo(todo);
+    TodoList.deleteTodo(TodoList.getTodos()[index]);
     renderTodos();
-};
+}
 
-AddTodoBtn.addEventListener("click", () => {
+// AddTodoBtn event listener
+addTodoBtn.addEventListener("click", () => {
     const name = prompt("Todo name:");
     const status = prompt("Status:");
 
     if (name) {
         TodoList.addTodo(name, status);
         renderTodos();
-    };
+    }
 });
 
-// Task handlers
+// RENDER TASKS
+function renderTasks() {
+    taskContainer.innerHTML = "";
+}
 
-export { renderTodos };
+// addTaskBtn event listener (add to active todo's tasks)
+
+// Edit task
+
+// Delete task
+
+function renderInfo() {
+    infoContainer.innerHTML = "";
+};
+
+export { renderTodos, renderTasks, renderInfo };
