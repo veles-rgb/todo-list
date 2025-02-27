@@ -5,6 +5,7 @@ class Todo {
     constructor(name, status) {
         this.name = name;
         this.status = status;
+        this.tasks = [];
     };
 
     editTodo(newName) {
