@@ -1,4 +1,5 @@
 // todo.js
+import Task from "./task";
 
 // Create todo object (project)
 class Todo {
@@ -10,6 +11,11 @@ class Todo {
 
     editTodo(newName) {
         this.name = newName;
+    };
+
+    addTask(title, description, dueDate, priority) {
+        const newTask = new Task(title, description, dueDate, priority);
+        this.tasks.push(newTask);
     };
 };
 
