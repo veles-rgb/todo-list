@@ -42,21 +42,29 @@ header h1 {
     grid-area: content;
 }
 
-#content h1 {
+.section-title {
     text-align: center;
     color: var(--alt-font-color);
 }
 
+/* Content Left Styles */
 #content-left {
     grid-area: left;
     border-right: var(--2px) solid var(--main-border-color);
 }
 
+/* Content Middle Styles */
 #content-middle {
     grid-area: middle;
     border-right: var(--2px) solid var(--main-border-color);
 }
 
+.task-item {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Content Right Styles */
 #content-right {
     grid-area: right;
 }
