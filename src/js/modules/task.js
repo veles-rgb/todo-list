@@ -18,9 +18,9 @@ class Task {
     };
 
     // Delete task
-
-    // Get tasks
-
+    deleteTask(todoIndex, taskIndex) {
+        TodoList.getTodos()[todoIndex].tasks.splice(taskIndex, 1);
+    };
 };
 
 export default Task;
