@@ -19,7 +19,7 @@
         - M̶a̶k̶e̶ a̶ t̶a̶s̶k̶ s̶e̶l̶e̶c̶t̶a̶b̶l̶e̶ w̶i̶t̶h̶ a̶n̶ a̶c̶t̶i̶v̶e̶-̶t̶a̶s̶k̶ c̶l̶a̶s̶s̶
         - W̶h̶e̶n̶ a̶c̶t̶i̶v̶e̶,̶ r̶e̶m̶o̶v̶e̶ a̶c̶t̶i̶v̶e̶-̶t̶a̶s̶k̶ c̶l̶a̶s̶s̶ f̶r̶o̶m̶ a̶l̶l̶ o̶t̶h̶e̶r̶ t̶a̶s̶k̶s̶
     - When active, change the info-container display to show only the active tasks
-    - Add an addTaskBtn in html to add tasks to the currently active todo's tasks
+    - A̶d̶d̶ a̶n̶ a̶d̶d̶T̶a̶s̶k̶B̶t̶n̶ i̶n̶ h̶t̶m̶l̶ t̶o̶ a̶d̶d̶ t̶a̶s̶k̶s̶ t̶o̶ t̶h̶e̶ c̶u̶r̶r̶e̶n̶t̶l̶y̶ a̶c̶t̶i̶v̶e̶ t̶o̶d̶o̶'̶s̶ t̶a̶s̶k̶s̶
     - forEach task in a todo, create an li input checkbox that is stored in a ul
     - Connect the checkbox value to the this.status of the corresponding task
     - If all checkboxes in a are "Checked" then todo.status = Complete
