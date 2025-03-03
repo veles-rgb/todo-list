@@ -4,6 +4,7 @@ import Task from "./task.js";
 const todoContainer = document.getElementById("todo-container");
 const addTodoBtn = document.getElementById("add-todo");
 const taskContainer = document.getElementById("task-container");
+const addTaskBtn = document.getElementById("add-task");
 const infoContainer = document.getElementById("info-container");
 
 // RENDER TODOS
@@ -85,8 +86,23 @@ function renderTasks() {
     const todoItems = document.querySelectorAll(".todo-item");
     todoItems.forEach((item, todoIndex) => {
         if (item.classList.contains("active-todo")) {
+            // Create add task btn
+            const addTaskBtn = document.createElement("button");
+            addTaskBtn.textContent = "Add task";
+            addTaskBtn.setAttribute("id", "#add-task");
+            taskContainer.appendChild(addTaskBtn);
+            // addTaskBtn event listener (add to active todo's tasks)
+            addTaskBtn.addEventListener("click", () => {
+                const title = prompt("Enter new task name:");
+                const description = prompt("Enter new task description:");
+                const dueDate = prompt("Enter new task due date:");
+                const priority = prompt("Enter new task priority:");
+                TodoList.getTodos()[todoIndex].tasks.push(new Task(title, description, dueDate, priority));
+                renderTasks();
+            });
+            // Create task elements
             TodoList.getTodos()[todoIndex].tasks.forEach((task, taskIndex) => {
-                console.log(task) // Test
+                console.log(task); // Test
                 // Create task divs
                 const taskElement = document.createElement("div");
                 taskElement.classList.add("task-item");
@@ -143,9 +159,7 @@ function renderTasks() {
             });
         });
     });
-}
-
-// addTaskBtn event listener (add to active todo's tasks)
+};
 
 // Edit task handler
 function taskEditHandler(task) {
