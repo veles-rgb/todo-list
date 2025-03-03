@@ -6,8 +6,11 @@ import Task from "./modules/task.js";
 import { renderTasks, renderTodos, renderInfo } from "./modules/dom.js";
 
 function addDefault() {
-    const defaultTodo = TodoList.addTodo("Make A Todo App", "Incomplete");
-    defaultTodo.tasks.push(new Task("Title", "Description", "dueDate", "Priority"));
+    const defaultTodo1 = TodoList.addTodo("Make A Todo App", "Incomplete");
+    defaultTodo1.tasks.push(new Task("Do this", "Description", "dueDate", "Priority"));
+    defaultTodo1.tasks.push(new Task("Do that", "Description", "dueDate", "Priority"));
+    const defaultTodo2 = TodoList.addTodo("Test", "Incomplete");
+    defaultTodo2.tasks.push(new Task("Title", "Description", "dueDate", "Priority"));
 };
 
 addDefault();
