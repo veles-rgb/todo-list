@@ -53,6 +53,11 @@ header h1 {
     border-right: var(--2px) solid var(--main-border-color);
 }
 
+.todo-item {
+    display: flex;
+    gap: 1rem;
+}
+
 /* Content Middle Styles */
 #content-middle {
     grid-area: middle;
