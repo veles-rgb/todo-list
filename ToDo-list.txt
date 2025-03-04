@@ -47,4 +47,4 @@
     - No idea yet, leave that for later.
 
 6. Styles Stuff
-    - I love styles
+    - Pick color scheme
