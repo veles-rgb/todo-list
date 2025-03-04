@@ -13,9 +13,17 @@ function renderTodos() {
 
     TodoList.getTodos().forEach((todo, todoIndex) => {
         const todoElement = document.createElement("div");
-        todoElement.textContent = `${todo.name} - ${todo.status}`;
+        // todoElement.textContent = `${todo.name} - ${todo.status}`;
         todoElement.classList.add("todo-item");
         todoElement.dataset.index = todoIndex;
+
+        const todoName = document.createElement("p")
+        todoName.classList.add("todo-item-name");
+        todoName.textContent = todo.name;
+
+        const todoStatus = document.createElement("p");
+        todoStatus.classList.add("todo-item-status");
+        todoStatus.textContent = todo.status;
 
         const editBtn = document.createElement("button");
         editBtn.textContent = "✎";
@@ -29,6 +37,8 @@ function renderTodos() {
             TodoDeleteHandler(todoIndex);
         });
 
+        todoElement.appendChild(todoName);
+        todoElement.appendChild(todoStatus);
         todoElement.appendChild(editBtn);
         todoElement.appendChild(deleteBtn);
         todoContainer.appendChild(todoElement);
