@@ -11,6 +11,7 @@ function addDefault() {
     defaultTodo1.tasks.push(new Task("Do that", "Description", "dueDate", "Priority"));
     const defaultTodo2 = TodoList.addTodo("Test", "Incomplete");
     defaultTodo2.tasks.push(new Task("Title", "Description", "dueDate", "Priority"));
+    defaultTodo2.tasks[0].notes = "test"
 };
 
 addDefault();
