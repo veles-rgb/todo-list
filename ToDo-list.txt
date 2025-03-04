@@ -10,6 +10,8 @@
     - W̶h̶e̶n̶ a̶c̶t̶i̶v̶e̶,̶ r̶e̶m̶o̶v̶e̶ a̶c̶t̶i̶v̶e̶-̶t̶o̶d̶o̶ c̶l̶a̶s̶s̶ f̶r̶o̶m̶ a̶l̶l̶ o̶t̶h̶e̶r̶ T̶o̶d̶o̶s̶
     - W̶h̶e̶n̶ a̶c̶t̶i̶v̶e̶,̶ c̶h̶a̶n̶g̶e̶ t̶h̶e̶ t̶a̶s̶k̶-̶c̶o̶n̶t̶a̶i̶n̶e̶r̶ d̶i̶s̶p̶l̶a̶y̶ t̶o̶ s̶h̶o̶w̶ o̶n̶l̶y̶ t̶h̶e̶ a̶c̶t̶i̶v̶e̶ T̶o̶d̶o̶'̶s̶ t̶a̶s̶k̶s̶
     - S̶e̶p̶a̶r̶a̶t̶e̶ n̶a̶m̶e̶ a̶n̶d̶ s̶t̶a̶t̶u̶s̶ i̶n̶ d̶i̶v̶s̶
+    - Instead of using prompts to add new todo create modal with form (addTodoBtn EventListener)
+    - Instead of using prompts to edit todo, create modal with form (TodoEditHandler)
 
 2. Task Stuff
     - M̶a̶k̶e̶ t̶h̶e̶ T̶a̶s̶k̶ c̶l̶a̶s̶s̶ w̶o̶r̶k̶
@@ -25,6 +27,8 @@
     - If all checkboxes in a are "Checked" then todo.status = Complete
     - Use date picker when creating a new task for this.dueDate turn it into a readable date with date-fns
     - Make priority options a dropdown list (!, !!, !!!)
+    - Instead of using prompts to add new task, create modal with form (addTaskBtn EventListener)
+    - Instead of using prompts to edit task, create modal with form (taskEditHandler)
 
 3. Info Stuff
     - F̶i̶g̶u̶r̶e̶ o̶u̶t̶ i̶f̶ a̶ c̶l̶a̶s̶s̶ i̶s̶ b̶e̶s̶t̶ s̶u̶i̶t̶e̶d̶ f̶o̶r̶ i̶n̶f̶o̶ o̶r̶ i̶f̶ a̶ m̶o̶d̶u̶l̶e̶ i̶s̶ e̶v̶e̶n̶ n̶e̶e̶d̶e̶d̶.̶ M̶a̶y̶b̶e̶ d̶o̶m̶ o̶n̶l̶y̶?̶
@@ -34,8 +38,13 @@
         - Add the current status of task in info with button to "Checked" checkbox
         - C̶l̶o̶n̶e̶ t̶h̶e̶ c̶u̶r̶r̶e̶n̶t̶ t̶a̶s̶k̶s̶ e̶d̶i̶t̶ &̶ d̶e̶l̶e̶t̶e̶ b̶t̶n̶'̶s̶ a̶n̶d̶ a̶d̶d̶ t̶o̶ i̶n̶f̶o̶ d̶i̶s̶p̶l̶a̶y̶
 
-4. Storage Stuff
+4. Display Stuff
+    - Change header text (something better than Todo App)
+    - Update Tasks container section-title to include current todo name
+    - Update info container section-title to include current task title
+
+5. Storage Stuff
     - No idea yet, leave that for later.
 
-5. Styles Stuff
+6. Styles Stuff
     - I love styles
