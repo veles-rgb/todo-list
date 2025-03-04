@@ -1,10 +1,10 @@
 import TodoList from "./todo.js";
 import Task from "./task.js";
+import todo from "./todo.js";
 
 const todoContainer = document.getElementById("todo-container");
 const addTodoBtn = document.getElementById("add-todo");
 const taskContainer = document.getElementById("task-container");
-const addTaskBtn = document.getElementById("add-task");
 const infoContainer = document.getElementById("info-container");
 
 // RENDER TODOS
@@ -13,7 +13,6 @@ function renderTodos() {
 
     TodoList.getTodos().forEach((todo, todoIndex) => {
         const todoElement = document.createElement("div");
-        // todoElement.textContent = `${todo.name} - ${todo.status}`;
         todoElement.classList.add("todo-item");
         todoElement.dataset.index = todoIndex;
 
@@ -33,9 +32,7 @@ function renderTodos() {
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "🗑";
         deleteBtn.classList.add("delete-todo-btn")
-        deleteBtn.addEventListener("click", () => {
-            TodoDeleteHandler(todoIndex);
-        });
+        deleteBtn.addEventListener("click", () => TodoDeleteHandler(todoIndex));
 
         todoElement.appendChild(todoName);
         todoElement.appendChild(todoStatus);
@@ -57,7 +54,7 @@ function renderTodos() {
                 // Add new active-todo class
                 item.classList.add("active-todo");
             };
-            renderTasks(item, todoIndex);
+            renderTasks();
         });
     });
 };
@@ -69,6 +66,8 @@ function TodoEditHandler(index) {
     if (todo) {
         todo.editTodo(newName);
         renderTodos();
+        renderTasks();
+        renderInfo();
     };
 };
 
@@ -76,6 +75,8 @@ function TodoEditHandler(index) {
 function TodoDeleteHandler(index) {
     TodoList.deleteTodo(TodoList.getTodos()[index]);
     renderTodos();
+    renderTasks();
+    renderInfo();
 };
 
 // AddTodoBtn event listener
@@ -112,7 +113,6 @@ function renderTasks() {
             });
             // Create task elements
             TodoList.getTodos()[todoIndex].tasks.forEach((task, taskIndex) => {
-                console.log(task); // Test
                 // Create task divs
                 const taskElement = document.createElement("div");
                 taskElement.classList.add("task-item");
@@ -165,6 +165,7 @@ function renderTasks() {
                     });
                     // Add new active-task class
                     task.classList.add("active-task");
+                    renderInfo();
                 };
             });
         });
@@ -179,17 +180,74 @@ function taskEditHandler(task) {
     const newPriority = prompt("Enter new priority");
     task.editTask(newTitle, newDescription, newDueDate, newPriority);
     renderTasks();
+    renderInfo();
 };
 
 // Delete task handler
 function taskDeleteHandler(todoIndex, taskIndex) {
     TodoList.getTodos()[todoIndex].tasks[taskIndex].deleteTask(todoIndex, taskIndex);
     renderTasks();
+    renderInfo();
 };
 
 // RENDER INFO
 function renderInfo() {
     infoContainer.innerHTML = "";
+
+    const todoItems = document.querySelectorAll(".todo-item");
+    const taskItems = document.querySelectorAll(".task-item")
+    // Loop through todos in DOM with index
+    todoItems.forEach((todo, todoIndex) => {
+        // Find active todo in DOM
+        if (todo.classList.contains("active-todo")) {
+            // Loop through TodoList array with DOM todo index & get tasks with task index
+            TodoList.getTodos()[todoIndex].tasks.forEach((task, taskIndex) => {
+                // Find active task in DOM using task index
+                if (taskItems[taskIndex].classList.contains("active-task")) {
+                    // Create info DOM elements
+                    const infoTitle = document.createElement("h2");
+                    infoTitle.classList.add("info-title");
+                    infoTitle.textContent = `${task.title} (${task.status})`;
+
+                    const infoDesc = document.createElement("p");
+                    infoDesc.classList.add("info-desc");
+                    infoDesc.textContent = task.description;
+
+                    const infoNotes = document.createElement("textarea");
+                    infoNotes.classList.add("info-notes");
+                    infoNotes.textContent = task.notes;
+
+                    const infoDue = document.createElement("p");
+                    infoDue.classList.add("info-due");
+                    infoDue.textContent = task.dueDate;
+
+                    const infoPrio = document.createElement("p");
+                    infoPrio.classList.add("info-prio");
+                    infoPrio.textContent = task.priority;
+
+                    const editBtn = document.createElement("button");
+                    editBtn.textContent = "✎";
+                    editBtn.classList.add("edit-task-btn");
+                    editBtn.addEventListener("click", () => taskEditHandler(task));
+
+                    const deleteBtn = document.createElement("button");
+                    deleteBtn.textContent = "🗑";
+                    deleteBtn.classList.add("delete-task-btn");
+                    deleteBtn.addEventListener("click", () => {
+                        taskDeleteHandler(todoIndex, taskIndex);
+                    });
+
+                    infoContainer.appendChild(infoTitle);
+                    infoContainer.appendChild(infoPrio);
+                    infoContainer.appendChild(infoDesc);
+                    infoContainer.appendChild(infoNotes);
+                    infoContainer.appendChild(infoDue);
+                    infoContainer.appendChild(editBtn);
+                    infoContainer.appendChild(deleteBtn);
+                };
+            });
+        };
+    });
 };
 
 export { renderTodos, renderTasks, renderInfo };
