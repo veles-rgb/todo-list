@@ -61,10 +61,12 @@ function renderTodos() {
 
 // Delete Todo
 function TodoDeleteHandler(index) {
-    TodoList.deleteTodo(TodoList.getTodos()[index]);
-    renderTodos();
-    renderTasks();
-    renderInfo();
+    if (confirm("Are you sure you want to delete this todo?")) {
+        TodoList.deleteTodo(TodoList.getTodos()[index]);
+        renderTodos();
+        renderTasks();
+        renderInfo();
+    };
 };
 
 // AddTodoBtn event listener (open modal)
@@ -167,9 +169,11 @@ function taskEditHandler(task) {
 
 // Delete task handler
 function taskDeleteHandler(todoIndex, taskIndex) {
-    TodoList.getTodos()[todoIndex].tasks[taskIndex].deleteTask(todoIndex, taskIndex);
-    renderTasks();
-    renderInfo();
+    if (confirm("Are you sure you want to delete this task?")) {
+        TodoList.getTodos()[todoIndex].tasks[taskIndex].deleteTask(todoIndex, taskIndex);
+        renderTasks();
+        renderInfo();
+    };
 };
 
 // RENDER INFO
@@ -281,7 +285,7 @@ function createAddTodoModal() {
         TodoList.addTodo(todoName, "Incomplete");
         renderTodos();
         const todoItems = document.querySelectorAll(".todo-item");
-        const newestTodo = todoItems[todoItems.length -1];
+        const newestTodo = todoItems[todoItems.length - 1];
         newestTodo.classList.add("active-todo");
         renderTasks();
         renderInfo();
@@ -347,7 +351,13 @@ function createEditTodoModal(index) {
 };
 
 // Add task modal
+function createAddTaskModal() {
+
+};
 
 // Edit task modal
+function createEditTaskModal() {
+
+};
 
 export { renderTodos, renderTasks, renderInfo };
