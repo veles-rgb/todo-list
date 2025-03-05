@@ -254,6 +254,11 @@ function createAddTodoModal() {
     const addTodoForm = document.createElement("form");
     addTodoForm.setAttribute("id", "add-todo-form");
 
+    const modalCloseBtn = document.createElement("button");
+    modalCloseBtn.classList.add("modal-close-btn")
+    modalCloseBtn.textContent = "X"
+    modalCloseBtn.addEventListener("click", () => addTodoModal.close())
+
     const modalTitle = document.createElement("h2");
     modalTitle.classList.add("modal-title");
     modalTitle.textContent = "Add a Todo";
@@ -273,8 +278,9 @@ function createAddTodoModal() {
     submitTodoBtn.value = "Add";
 
     document.body.appendChild(addTodoModal);
+    addTodoModal.appendChild(modalCloseBtn)
+    addTodoModal.appendChild(modalTitle);
     addTodoModal.appendChild(addTodoForm)
-    addTodoForm.appendChild(modalTitle);
     addTodoForm.appendChild(todoNameLabel);
     addTodoForm.appendChild(todoNameInput);
     addTodoForm.appendChild(submitTodoBtn);
