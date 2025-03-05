@@ -13,7 +13,7 @@
     - I̶n̶s̶t̶e̶a̶d̶ o̶f̶ u̶s̶i̶n̶g̶ p̶r̶o̶m̶p̶t̶s̶ t̶o̶ a̶d̶d̶ n̶e̶w̶ t̶o̶d̶o̶ c̶r̶e̶a̶t̶e̶ m̶o̶d̶a̶l̶ w̶i̶t̶h̶ f̶o̶r̶m̶ (̶a̶d̶d̶T̶o̶d̶o̶B̶t̶n̶ E̶v̶e̶n̶t̶L̶i̶s̶t̶e̶n̶e̶r̶)̶
     - A̶d̶d̶ c̶l̶o̶s̶e̶ b̶u̶t̶t̶o̶n̶ t̶o̶ a̶d̶d̶ t̶o̶d̶o̶ m̶o̶d̶a̶l̶
     - I̶n̶s̶t̶e̶a̶d̶ o̶f̶ u̶s̶i̶n̶g̶ p̶r̶o̶m̶p̶t̶s̶ t̶o̶ e̶d̶i̶t̶ t̶o̶d̶o̶,̶ c̶r̶e̶a̶t̶e̶ m̶o̶d̶a̶l̶ w̶i̶t̶h̶ f̶o̶r̶m̶ (̶T̶o̶d̶o̶E̶d̶i̶t̶H̶a̶n̶d̶l̶e̶r̶)̶
-    - Add confirmation before deleting todo
+    - A̶d̶d̶ c̶o̶n̶f̶i̶r̶m̶a̶t̶i̶o̶n̶ b̶e̶f̶o̶r̶e̶ d̶e̶l̶e̶t̶i̶n̶g̶ t̶o̶d̶o̶
 
 2. Task Stuff
     - M̶a̶k̶e̶ t̶h̶e̶ T̶a̶s̶k̶ c̶l̶a̶s̶s̶ w̶o̶r̶k̶
@@ -31,7 +31,8 @@
     - Make priority options a dropdown list (!, !!, !!!)
     - Instead of using prompts to add new task, create modal with form (addTaskBtn EventListener)
     - Instead of using prompts to edit task, create modal with form (taskEditHandler)
-    - Add confirmation before deleting task
+    - Make sure info edit and delete btns also work with the same modals
+    - A̶d̶d̶ c̶o̶n̶f̶i̶r̶m̶a̶t̶i̶o̶n̶ b̶e̶f̶o̶r̶e̶ d̶e̶l̶e̶t̶i̶n̶g̶ t̶a̶s̶k̶
 
 3. Info Stuff
     - F̶i̶g̶u̶r̶e̶ o̶u̶t̶ i̶f̶ a̶ c̶l̶a̶s̶s̶ i̶s̶ b̶e̶s̶t̶ s̶u̶i̶t̶e̶d̶ f̶o̶r̶ i̶n̶f̶o̶ o̶r̶ i̶f̶ a̶ m̶o̶d̶u̶l̶e̶ i̶s̶ e̶v̶e̶n̶ n̶e̶e̶d̶e̶d̶.̶ M̶a̶y̶b̶e̶ d̶o̶m̶ o̶n̶l̶y̶?̶
