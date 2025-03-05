@@ -44,6 +44,7 @@
         - S̶i̶n̶c̶e̶ t̶h̶e̶ i̶n̶f̶o̶ i̶s̶ o̶n̶l̶y̶ d̶i̶s̶p̶l̶a̶y̶e̶d̶ m̶a̶y̶b̶e̶ i̶t̶ d̶o̶e̶s̶'̶t̶ n̶e̶e̶d̶ a̶ m̶o̶d̶u̶l̶e̶ o̶r̶ c̶l̶a̶s̶s̶
     - A̶d̶d̶ r̶e̶n̶d̶e̶r̶I̶n̶f̶o̶(̶)̶ f̶u̶n̶c̶t̶i̶o̶n̶ i̶n̶ d̶o̶m̶.̶j̶s̶ t̶o̶ r̶e̶n̶d̶e̶r̶ a̶ s̶e̶l̶e̶c̶t̶e̶d̶ t̶a̶s̶k̶s̶ i̶n̶f̶o̶ t̶o̶ #̶i̶n̶f̶o̶-̶c̶o̶n̶t̶a̶i̶n̶e̶r̶
         - Make notes textbox update when typing for this.notes (might need a task method and eventListener)
+            - Could use something like task.notes = updatedText (using eventListener)
         - Add the current status of task in info with button to "Checked" checkbox
         - C̶l̶o̶n̶e̶ t̶h̶e̶ c̶u̶r̶r̶e̶n̶t̶ t̶a̶s̶k̶s̶ e̶d̶i̶t̶ &̶ d̶e̶l̶e̶t̶e̶ b̶t̶n̶'̶s̶ a̶n̶d̶ a̶d̶d̶ t̶o̶ i̶n̶f̶o̶ d̶i̶s̶p̶l̶a̶y̶
 
