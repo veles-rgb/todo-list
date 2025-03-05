@@ -1,6 +1,6 @@
 import TodoList from "./todo.js";
 import Task from "./task.js";
-import todo from "./todo.js";
+import todo from "./todo.js"; // REMOVE LATER
 
 const todoContainer = document.getElementById("todo-container");
 const addTodoBtn = document.getElementById("add-todo");
@@ -79,15 +79,9 @@ function TodoDeleteHandler(index) {
     renderInfo();
 };
 
-// AddTodoBtn event listener
+// AddTodoBtn event listener (open modal)
 addTodoBtn.addEventListener("click", () => {
-    const name = prompt("Todo name:");
-    const status = prompt("Status:");
-
-    if (name) {
-        TodoList.addTodo(name, status);
-        renderTodos();
-    };
+    createAddTodoModal();
 });
 
 // RENDER TASKS
@@ -249,5 +243,62 @@ function renderInfo() {
         };
     });
 };
+
+// MODALS
+
+// Add todo modal
+function createAddTodoModal() {
+    const addTodoModal = document.createElement("dialog");
+    addTodoModal.classList.add("add-todo-modal");
+
+    const addTodoForm = document.createElement("form");
+    addTodoForm.setAttribute("id", "add-todo-form");
+
+    const modalTitle = document.createElement("h2");
+    modalTitle.classList.add("modal-title");
+    modalTitle.textContent = "Add a Todo";
+
+    const todoNameLabel = document.createElement("label");
+    todoNameLabel.htmlFor = "add-todo-name";
+    todoNameLabel.textContent = "Enter todo name";
+
+    const todoNameInput = document.createElement("input");
+    todoNameInput.type = "text";
+    todoNameInput.name = "add-todo-name";
+    todoNameInput.setAttribute("id", "add-todo-name")
+
+    const submitTodoBtn = document.createElement("input");
+    submitTodoBtn.classList.add("modal-submit");
+    submitTodoBtn.type = "submit";
+    submitTodoBtn.value = "Add";
+
+    document.body.appendChild(addTodoModal);
+    addTodoModal.appendChild(addTodoForm)
+    addTodoForm.appendChild(modalTitle);
+    addTodoForm.appendChild(todoNameLabel);
+    addTodoForm.appendChild(todoNameInput);
+    addTodoForm.appendChild(submitTodoBtn);
+    addTodoModal.showModal();
+
+    addTodoForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const todoName = formData.get("add-todo-name");
+        TodoList.addTodo(todoName, "Incomplete");
+        renderTodos();
+        const todoItems = document.querySelectorAll(".todo-item");
+        const newestTodo = todoItems[todoItems.length -1];
+        newestTodo.classList.add("active-todo");
+        renderTasks();
+        renderInfo();
+        addTodoModal.close();
+    });
+};
+
+// Edit todo modal
+
+// Add task modal
+
+// Edit task modal
 
 export { renderTodos, renderTasks, renderInfo };
