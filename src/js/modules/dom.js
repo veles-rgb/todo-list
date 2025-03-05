@@ -27,7 +27,7 @@ function renderTodos() {
         const editBtn = document.createElement("button");
         editBtn.textContent = "✎";
         editBtn.classList.add("edit-todo-btn")
-        editBtn.addEventListener("click", () => TodoEditHandler(todoIndex));
+        editBtn.addEventListener("click", () => createEditTodoModal(todoIndex));
 
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "🗑";
@@ -57,18 +57,6 @@ function renderTodos() {
             renderTasks();
         });
     });
-};
-
-// Edit Todo Name
-function TodoEditHandler(index) {
-    const newName = prompt("New name:");
-    const todo = TodoList.getTodos()[index];
-    if (todo) {
-        todo.editTodo(newName);
-        renderTodos();
-        renderTasks();
-        renderInfo();
-    };
 };
 
 // Delete Todo
@@ -255,9 +243,9 @@ function createAddTodoModal() {
     addTodoForm.setAttribute("id", "add-todo-form");
 
     const modalCloseBtn = document.createElement("button");
-    modalCloseBtn.classList.add("modal-close-btn")
-    modalCloseBtn.textContent = "X"
-    modalCloseBtn.addEventListener("click", () => addTodoModal.close())
+    modalCloseBtn.classList.add("modal-close-btn");
+    modalCloseBtn.textContent = "X";
+    modalCloseBtn.addEventListener("click", () => addTodoModal.close());
 
     const modalTitle = document.createElement("h2");
     modalTitle.classList.add("modal-title");
@@ -272,10 +260,10 @@ function createAddTodoModal() {
     todoNameInput.name = "add-todo-name";
     todoNameInput.setAttribute("id", "add-todo-name")
 
-    const submitTodoBtn = document.createElement("input");
-    submitTodoBtn.classList.add("modal-submit");
-    submitTodoBtn.type = "submit";
-    submitTodoBtn.value = "Add";
+    const submitBtn = document.createElement("input");
+    submitBtn.classList.add("modal-submit");
+    submitBtn.type = "submit";
+    submitBtn.value = "Add";
 
     document.body.appendChild(addTodoModal);
     addTodoModal.appendChild(modalCloseBtn)
@@ -283,7 +271,7 @@ function createAddTodoModal() {
     addTodoModal.appendChild(addTodoForm)
     addTodoForm.appendChild(todoNameLabel);
     addTodoForm.appendChild(todoNameInput);
-    addTodoForm.appendChild(submitTodoBtn);
+    addTodoForm.appendChild(submitBtn);
     addTodoModal.showModal();
 
     addTodoForm.addEventListener("submit", (e) => {
@@ -302,6 +290,61 @@ function createAddTodoModal() {
 };
 
 // Edit todo modal
+function createEditTodoModal(index) {
+    const todo = TodoList.getTodos()[index];
+
+    const editTodoModal = document.createElement("dialog");
+    editTodoModal.classList.add("edit-todo-modal");
+
+    const editTodoForm = document.createElement("form");
+    editTodoForm.setAttribute("id", "edit-todo-form");
+
+    const modalCloseBtn = document.createElement("button");
+    modalCloseBtn.classList.add("modal-close-btn");
+    modalCloseBtn.textContent = "X";
+    modalCloseBtn.addEventListener("click", () => editTodoModal.close());
+
+    const modalTitle = document.createElement("h2");
+    modalTitle.classList.add("modal-title");
+    modalTitle.textContent = "Edit Todo";
+
+    const todoNameLabel = document.createElement("label");
+    todoNameLabel.htmlFor = "new-todo-name";
+    todoNameLabel.textContent = "Enter new name";
+
+    const todoNameInput = document.createElement("input");
+    todoNameInput.type = "text";
+    todoNameInput.name = "new-todo-name";
+    todoNameInput.setAttribute("id", "new-todo-name")
+
+    const submitBtn = document.createElement("input");
+    submitBtn.classList.add("modal-submit");
+    submitBtn.type = "submit";
+    submitBtn.value = "Edit";
+
+    document.body.appendChild(editTodoModal);
+    editTodoModal.appendChild(modalCloseBtn);
+    editTodoModal.appendChild(modalTitle);
+    editTodoModal.appendChild(editTodoForm);
+    editTodoForm.appendChild(todoNameLabel);
+    editTodoForm.appendChild(todoNameInput);
+    editTodoForm.appendChild(submitBtn);
+    editTodoModal.showModal();
+
+    editTodoForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const newName = formData.get("new-todo-name");
+        todo.editTodo(newName);
+        renderTodos();
+        const todoItems = document.querySelectorAll(".todo-item");
+        const editedTodo = todoItems[index];
+        editedTodo.classList.add("active-todo");
+        renderTasks();
+        renderInfo();
+        editTodoModal.close();
+    });
+};
 
 // Add task modal
 
