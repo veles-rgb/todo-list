@@ -34,6 +34,7 @@ header h1 {
     color: var(--alt-font-color);
 }
 
+/* Main Content Styles */
 #content {
     display: grid;
     grid-template-areas: 
@@ -45,6 +46,26 @@ header h1 {
 .section-title {
     text-align: center;
     color: var(--alt-font-color);
+}
+
+/* Modal Styles */
+dialog {
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    color: var(--alt-font-color);
+    background-color: var(--background-color);
+    border: 2px solid var(--main-border-color);
+}
+
+dialog::backdrop {
+    backdrop-filter: blur(4px);
+}
+
+/* Form Styles */
+#add-todo-form {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Content Left Styles */
