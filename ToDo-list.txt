@@ -11,7 +11,9 @@
     - W̶h̶e̶n̶ a̶c̶t̶i̶v̶e̶,̶ c̶h̶a̶n̶g̶e̶ t̶h̶e̶ t̶a̶s̶k̶-̶c̶o̶n̶t̶a̶i̶n̶e̶r̶ d̶i̶s̶p̶l̶a̶y̶ t̶o̶ s̶h̶o̶w̶ o̶n̶l̶y̶ t̶h̶e̶ a̶c̶t̶i̶v̶e̶ T̶o̶d̶o̶'̶s̶ t̶a̶s̶k̶s̶
     - S̶e̶p̶a̶r̶a̶t̶e̶ n̶a̶m̶e̶ a̶n̶d̶ s̶t̶a̶t̶u̶s̶ i̶n̶ d̶i̶v̶s̶
     - I̶n̶s̶t̶e̶a̶d̶ o̶f̶ u̶s̶i̶n̶g̶ p̶r̶o̶m̶p̶t̶s̶ t̶o̶ a̶d̶d̶ n̶e̶w̶ t̶o̶d̶o̶ c̶r̶e̶a̶t̶e̶ m̶o̶d̶a̶l̶ w̶i̶t̶h̶ f̶o̶r̶m̶ (̶a̶d̶d̶T̶o̶d̶o̶B̶t̶n̶ E̶v̶e̶n̶t̶L̶i̶s̶t̶e̶n̶e̶r̶)̶
+    - Add close button to add todo modal
     - Instead of using prompts to edit todo, create modal with form (TodoEditHandler)
+    - Add confirmation before deleting todo
 
 2. Task Stuff
     - M̶a̶k̶e̶ t̶h̶e̶ T̶a̶s̶k̶ c̶l̶a̶s̶s̶ w̶o̶r̶k̶
@@ -29,12 +31,13 @@
     - Make priority options a dropdown list (!, !!, !!!)
     - Instead of using prompts to add new task, create modal with form (addTaskBtn EventListener)
     - Instead of using prompts to edit task, create modal with form (taskEditHandler)
+    - Add confirmation before deleting task
 
 3. Info Stuff
     - F̶i̶g̶u̶r̶e̶ o̶u̶t̶ i̶f̶ a̶ c̶l̶a̶s̶s̶ i̶s̶ b̶e̶s̶t̶ s̶u̶i̶t̶e̶d̶ f̶o̶r̶ i̶n̶f̶o̶ o̶r̶ i̶f̶ a̶ m̶o̶d̶u̶l̶e̶ i̶s̶ e̶v̶e̶n̶ n̶e̶e̶d̶e̶d̶.̶ M̶a̶y̶b̶e̶ d̶o̶m̶ o̶n̶l̶y̶?̶
         - S̶i̶n̶c̶e̶ t̶h̶e̶ i̶n̶f̶o̶ i̶s̶ o̶n̶l̶y̶ d̶i̶s̶p̶l̶a̶y̶e̶d̶ m̶a̶y̶b̶e̶ i̶t̶ d̶o̶e̶s̶'̶t̶ n̶e̶e̶d̶ a̶ m̶o̶d̶u̶l̶e̶ o̶r̶ c̶l̶a̶s̶s̶
     - A̶d̶d̶ r̶e̶n̶d̶e̶r̶I̶n̶f̶o̶(̶)̶ f̶u̶n̶c̶t̶i̶o̶n̶ i̶n̶ d̶o̶m̶.̶j̶s̶ t̶o̶ r̶e̶n̶d̶e̶r̶ a̶ s̶e̶l̶e̶c̶t̶e̶d̶ t̶a̶s̶k̶s̶ i̶n̶f̶o̶ t̶o̶ #̶i̶n̶f̶o̶-̶c̶o̶n̶t̶a̶i̶n̶e̶r̶
-        - A̶d̶d̶ a̶ n̶o̶t̶e̶s̶ t̶e̶x̶t̶b̶o̶x̶ that updates when typing for this.notes (might need a task method and eventListener)
+        - Make notes textbox update when typing for this.notes (might need a task method and eventListener)
         - Add the current status of task in info with button to "Checked" checkbox
         - C̶l̶o̶n̶e̶ t̶h̶e̶ c̶u̶r̶r̶e̶n̶t̶ t̶a̶s̶k̶s̶ e̶d̶i̶t̶ &̶ d̶e̶l̶e̶t̶e̶ b̶t̶n̶'̶s̶ a̶n̶d̶ a̶d̶d̶ t̶o̶ i̶n̶f̶o̶ d̶i̶s̶p̶l̶a̶y̶
 
