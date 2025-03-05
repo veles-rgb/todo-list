@@ -88,12 +88,7 @@ function renderTasks() {
             taskContainer.appendChild(addTaskBtn);
             // addTaskBtn event listener (add to active todo's tasks)
             addTaskBtn.addEventListener("click", () => {
-                const title = prompt("Enter new task name:");
-                const description = prompt("Enter new task description:");
-                const dueDate = prompt("Enter new task due date:");
-                const priority = prompt("Enter new task priority:");
-                TodoList.getTodos()[todoIndex].tasks.push(new Task(title, description, dueDate, priority));
-                renderTasks();
+                createAddTaskModal(todoIndex);
             });
             // Create task elements
             TodoList.getTodos()[todoIndex].tasks.forEach((task, taskIndex) => {
@@ -351,13 +346,99 @@ function createEditTodoModal(index) {
 };
 
 // Add task modal
-function createAddTaskModal() {
+function createAddTaskModal(todoIndex) {
+    const addTaskModal = document.createElement("dialog");
+    addTaskModal.classList.add("add-task-modal");
 
+    const addTaskForm = document.createElement("form");
+    addTaskForm.setAttribute("id", "add-task-form");
+
+    const modalCloseBtn = document.createElement("button");
+    modalCloseBtn.classList.add("modal-close-btn");
+    modalCloseBtn.textContent = "X";
+    modalCloseBtn.addEventListener("click", () => addTaskModal.close());
+
+    const modalTitle = document.createElement("h2");
+    modalTitle.classList.add("modal-title");
+    modalTitle.textContent = "Add a Task";
+
+    const taskTitleLabel = document.createElement("label")
+    taskTitleLabel.htmlFor = "task-title";
+    taskTitleLabel.textContent = "Name";
+
+    const taskTitleInput = document.createElement("input")
+    taskTitleInput.type = "text";
+    taskTitleInput.name = "task-title";
+    taskTitleInput.setAttribute("id", "task-title");
+
+    const taskDescLabel = document.createElement("label");
+    taskDescLabel.htmlFor = "task-desc";
+    taskDescLabel.textContent = "Description";
+
+    const taskDescInput = document.createElement("input");
+    taskDescInput.type = "text";
+    taskDescInput.name = "task-desc";
+    taskDescInput.setAttribute("id", "task-desc");
+
+    const taskDueLabel = document.createElement("label");
+    taskDueLabel.htmlFor = "task-due";
+    taskDueLabel.textContent = "Due Date"
+
+    const taskDueInput = document.createElement("input");
+    taskDueInput.type = "text"; // Will change to calender
+    taskDueInput.name = "task-due";
+    taskDueInput.setAttribute("id", "task-due");
+
+    const taskPrioLabel = document.createElement("label");
+    taskPrioLabel.htmlFor = "task-prio";
+    taskPrioLabel.textContent = "Task Priority";
+
+    const taskPrioInput = document.createElement("input");
+    taskPrioInput.type = "text"; // Will change to dropdown list (!, !!, !!!)
+    taskPrioInput.name = "task-prio";
+    taskPrioInput.setAttribute("id", "task-prio");
+
+    const submitBtn = document.createElement("input");
+    submitBtn.classList.add("modal-submit");
+    submitBtn.type = "submit";
+    submitBtn.value = "Add";
+
+    document.body.appendChild(addTaskModal);
+    addTaskModal.appendChild(modalCloseBtn);
+    addTaskModal.appendChild(modalTitle);
+    addTaskModal.appendChild(addTaskForm);
+    addTaskForm.appendChild(taskTitleLabel);
+    addTaskForm.appendChild(taskTitleInput);
+    addTaskForm.appendChild(taskDescLabel);
+    addTaskForm.appendChild(taskDescInput);
+    addTaskForm.appendChild(taskDueLabel);
+    addTaskForm.appendChild(taskDueInput);
+    addTaskForm.appendChild(taskPrioLabel);
+    addTaskForm.appendChild(taskPrioInput);
+    addTaskForm.appendChild(submitBtn);
+    addTaskModal.showModal();
+
+    addTaskForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const formData = new FormData(e.target);
+        const taskTitle = formData.get("task-title");
+        const taskDesc = formData.get("task-desc");
+        const taskDue = formData.get("task-due")
+        const taskPrio = formData.get("task-prio");
+
+        TodoList.getTodos()[todoIndex].tasks.push(new Task(taskTitle, taskDesc, taskDue, taskPrio));
+        renderTasks();
+        const taskItems = document.querySelectorAll(".task-item")
+        const newestTask = taskItems[taskItems.length - 1];
+        newestTask.classList.add("active-task");
+        renderInfo();
+        addTaskModal.close();
+    });
 };
 
 // Edit task modal
 function createEditTaskModal() {
-
+    
 };
 
 export { renderTodos, renderTasks, renderInfo };
