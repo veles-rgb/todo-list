@@ -51,6 +51,7 @@ header h1 {
 /* Modal Styles */
 dialog {
     margin: auto;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     color: var(--alt-font-color);
@@ -62,8 +63,19 @@ dialog::backdrop {
     backdrop-filter: blur(4px);
 }
 
+.modal-close-btn {
+    align-self: flex-end;
+    color: var(--alt-font-color);
+    background-color: var(--background-color);
+    border-color: var(--main-border-color);
+}
+
+.modal-title {
+    text-align: center;
+}
+
 /* Form Styles */
-#add-todo-form {
+form {
     display: flex;
     flex-direction: column;
 }
