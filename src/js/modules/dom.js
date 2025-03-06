@@ -12,35 +12,35 @@ function renderTodos() {
     todoContainer.innerHTML = "";
 
     TodoList.getTodos().forEach((todo, todoIndex) => {
+        // Create todo element div
         const todoElement = document.createElement("div");
         todoElement.classList.add("todo-item");
         todoElement.dataset.index = todoIndex;
-
+        // Create todo name
         const todoName = document.createElement("p")
         todoName.classList.add("todo-item-name");
         todoName.textContent = todo.name;
-
+        // Create todo.status
         const todoStatus = document.createElement("p");
         todoStatus.classList.add("todo-item-status");
         todoStatus.textContent = todo.status;
-
+        // Create edit todo btn
         const editBtn = document.createElement("button");
         editBtn.textContent = "✎";
         editBtn.classList.add("edit-todo-btn")
         editBtn.addEventListener("click", () => createEditTodoModal(todoIndex));
-
+        // Create delete todo btn
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "🗑";
         deleteBtn.classList.add("delete-todo-btn")
         deleteBtn.addEventListener("click", () => TodoDeleteHandler(todoIndex));
-
+        // Append elements
         todoElement.appendChild(todoName);
         todoElement.appendChild(todoStatus);
         todoElement.appendChild(editBtn);
         todoElement.appendChild(deleteBtn);
         todoContainer.appendChild(todoElement);
     });
-
     // Todo item eventListener
     const todoItems = document.querySelectorAll(".todo-item");
     todoItems.forEach((item, todoIndex) => {
@@ -55,6 +55,7 @@ function renderTodos() {
                 item.classList.add("active-todo");
             };
             renderTasks();
+            renderInfo();
         });
     });
 };
@@ -96,6 +97,24 @@ function renderTasks() {
                 const taskElement = document.createElement("div");
                 taskElement.classList.add("task-item");
                 taskElement.dataset.index = taskIndex;
+                // Create checkbox item
+                const taskCheckbox = document.createElement("input");
+                taskCheckbox.type = "checkbox";
+                taskCheckbox.setAttribute("id", `cb-${taskIndex}`);
+                taskCheckbox.classList.add("task-checkbox");
+                // Change task.status upon being checked/unchecked
+                taskCheckbox.addEventListener("change", () => {
+                    if (taskCheckbox.checked) {
+                        task.status = "Completed";
+                    } else {
+                        task.status = "Incomplete";
+                    };
+                    renderInfo();
+                });
+                // Update checked if status completed
+                if (task.status === "Completed") {
+                    taskCheckbox.checked = true;
+                };
                 // Create task title
                 const taskTitle = document.createElement("p");
                 taskTitle.classList.add("task-item-title");
@@ -125,6 +144,7 @@ function renderTasks() {
 
                 // Append new task elements
                 taskContainer.appendChild(taskElement);
+                taskElement.appendChild(taskCheckbox);
                 taskElement.appendChild(taskTitle);
                 taskElement.appendChild(taskDesc);
                 taskElement.appendChild(taskDue);
@@ -149,6 +169,15 @@ function renderTasks() {
             });
         });
     });
+    // If all checkboxes checked change todo status
+    TodoList.getTodos().forEach((todo, todoIndex) => {
+        todo.tasks.forEach((task, taskIndex) => {
+            if (task.status === "Completed") {
+                todo.status = "Completed";
+                renderTodos();
+            };
+        });
+    });
 };
 
 // Edit task handler
@@ -168,7 +197,6 @@ function taskDeleteHandler(todoIndex, taskIndex) {
 // RENDER INFO
 function renderInfo() {
     infoContainer.innerHTML = "";
-
     const todoItems = document.querySelectorAll(".todo-item");
     const taskItems = document.querySelectorAll(".task-item")
     // Loop through todos in DOM with index
