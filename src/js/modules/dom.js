@@ -43,9 +43,8 @@ function renderTodos() {
     });
     // Todo item eventListener
     const todoItems = document.querySelectorAll(".todo-item");
-    todoItems.forEach((item, todoIndex) => {
+    todoItems.forEach((item) => {
         item.addEventListener("click", () => {
-            console.log(`${item.textContent} clicked!`); // Test
             // Check for active-todo class and remove all others
             if (!item.classList.contains("active-todo")) {
                 todoItems.forEach((item) => {
@@ -53,9 +52,9 @@ function renderTodos() {
                 });
                 // Add new active-todo class
                 item.classList.add("active-todo");
+                renderTasks();
+                renderInfo();
             };
-            renderTasks();
-            renderInfo();
         });
     });
 };
@@ -111,7 +110,7 @@ function renderTasks() {
                     };
                     renderInfo();
                 });
-                // Update checked if status completed
+                // Update checked if status completed (for re-render)
                 if (task.status === "Completed") {
                     taskCheckbox.checked = true;
                 };
@@ -167,15 +166,6 @@ function renderTasks() {
                     renderInfo();
                 };
             });
-        });
-    });
-    // If all checkboxes checked change todo status
-    TodoList.getTodos().forEach((todo, todoIndex) => {
-        todo.tasks.forEach((task, taskIndex) => {
-            if (task.status === "Completed") {
-                todo.status = "Completed";
-                renderTodos();
-            };
         });
     });
 };
