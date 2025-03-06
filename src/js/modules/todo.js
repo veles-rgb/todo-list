@@ -5,7 +5,7 @@ import Task from "./task";
 class Todo {
     constructor(name, status) {
         this.name = name;
-        this.status = status;
+        this.status = "Incomplete";
         this.tasks = [];
     };
 
