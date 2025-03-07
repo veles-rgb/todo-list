@@ -46,7 +46,7 @@
     - A̶d̶d̶ r̶e̶n̶d̶e̶r̶I̶n̶f̶o̶(̶)̶ f̶u̶n̶c̶t̶i̶o̶n̶ i̶n̶ d̶o̶m̶.̶j̶s̶ t̶o̶ r̶e̶n̶d̶e̶r̶ a̶ s̶e̶l̶e̶c̶t̶e̶d̶ t̶a̶s̶k̶s̶ i̶n̶f̶o̶ t̶o̶ #̶i̶n̶f̶o̶-̶c̶o̶n̶t̶a̶i̶n̶e̶r̶
         -̶ M̶a̶k̶e̶ n̶o̶t̶e̶s̶ t̶e̶x̶t̶b̶o̶x̶ u̶p̶d̶a̶t̶e̶ w̶h̶e̶n̶ t̶y̶p̶i̶n̶g̶ f̶o̶r̶ t̶h̶i̶s̶.̶n̶o̶t̶e̶s̶ (̶m̶i̶g̶h̶t̶ n̶e̶e̶d̶ a̶ t̶a̶s̶k̶ m̶e̶t̶h̶o̶d̶ a̶n̶d̶ e̶v̶e̶n̶t̶L̶i̶s̶t̶e̶n̶e̶r̶)̶
             -̶ C̶o̶u̶l̶d̶ u̶s̶e̶ s̶o̶m̶e̶t̶h̶i̶n̶g̶ l̶i̶k̶e̶ t̶a̶s̶k̶.̶n̶o̶t̶e̶s̶ =̶ u̶p̶d̶a̶t̶e̶d̶T̶e̶x̶t̶ (̶u̶s̶i̶n̶g̶ e̶v̶e̶n̶t̶L̶i̶s̶t̶e̶n̶e̶r̶)̶
-        - Add the current status of task in info with button to "Checked" checkbox
+        - A̶d̶d̶ t̶h̶e̶ c̶u̶r̶r̶e̶n̶t̶ s̶t̶a̶t̶u̶s̶ o̶f̶ t̶a̶s̶k̶ i̶n̶ i̶n̶f̶o̶
         - C̶l̶o̶n̶e̶ t̶h̶e̶ c̶u̶r̶r̶e̶n̶t̶ t̶a̶s̶k̶s̶ e̶d̶i̶t̶ &̶ d̶e̶l̶e̶t̶e̶ b̶t̶n̶'̶s̶ a̶n̶d̶ a̶d̶d̶ t̶o̶ i̶n̶f̶o̶ d̶i̶s̶p̶l̶a̶y̶
 
 4. Display Stuff
