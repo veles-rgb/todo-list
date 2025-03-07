@@ -134,19 +134,14 @@ function renderTasks() {
                     } else {
                         task.status = "Incomplete";
                     };
-                    // UPDATE TODO STATUS HERE!
+                    // If all checkboxes are checked change Todo status to complete
                     const taskCheckboxes = document.querySelectorAll(".task-checkbox");
-                    taskCheckboxes.forEach(checkbox => {
-                        if (checkbox.checked) {
-                            TodoList.getTodos()[todoIndex].status = "Completed";
-                        } else {
-                            TodoList.getTodos()[todoIndex].status = "Incomplete";
-                        };
-                        renderTodos();
-                        const todoItems = document.querySelectorAll(".todo-item");
-                        todoItems[todoIndex].classList.add("active-todo");
-                        renderInfo();
-                    });
+                    const allChecked = [...taskCheckboxes].every(checkbox => checkbox.checked);
+                    TodoList.getTodos()[todoIndex].status = allChecked ? "Completed" : "Incomplete";
+                    renderTodos();
+                    const todoItems = document.querySelectorAll(".todo-item");
+                    todoItems[todoIndex].classList.add("active-todo");
+                    renderInfo();
                 });
                 // Update checked if status completed (for re-render)
                 if (task.status === "Completed") {
