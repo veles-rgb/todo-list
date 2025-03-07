@@ -204,9 +204,14 @@ function renderInfo() {
                 // Find active task in DOM using task index
                 if (taskItems[taskIndex].classList.contains("active-task")) {
                     // Create info DOM elements
+                    // Create task status display
+                    const infoStatus = document.createElement("h3");
+                    infoStatus.classList.add("info-status");
+                    infoStatus.textContent = task.status;
+                    // Create task title display
                     const infoTitle = document.createElement("h2");
                     infoTitle.classList.add("info-title");
-                    infoTitle.textContent = `${task.title} (${task.status})`;
+                    infoTitle.textContent = task.title;
                     // Create task info display
                     const infoDesc = document.createElement("p");
                     infoDesc.classList.add("info-desc");
@@ -245,6 +250,7 @@ function renderInfo() {
                         taskDeleteHandler(todoIndex, taskIndex);
                     });
                     // Append elements
+                    infoContainer.appendChild(infoStatus);
                     infoContainer.appendChild(infoTitle);
                     infoContainer.appendChild(infoPrio);
                     infoContainer.appendChild(infoDesc);
