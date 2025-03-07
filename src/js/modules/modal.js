@@ -85,6 +85,7 @@ function createEditTodoModal(index) {
     todoNameInput.type = "text";
     todoNameInput.name = "new-todo-name";
     todoNameInput.setAttribute("id", "new-todo-name")
+    todoNameInput.value = todo.name;
 
     const submitBtn = document.createElement("input");
     submitBtn.classList.add("modal-submit");
@@ -208,6 +209,7 @@ function createAddTaskModal(todoIndex) {
 
 // Edit task modal
 function createEditTaskModal(task, taskIndex) {
+
     const editTaskModal = document.createElement("dialog");
     editTaskModal.classList.add("edit-task-modal");
 
@@ -231,6 +233,7 @@ function createEditTaskModal(task, taskIndex) {
     taskTitleInput.type = "text";
     taskTitleInput.name = "task-title";
     taskTitleInput.setAttribute("id", "task-title");
+    taskTitleInput.value = task.title;
 
     const taskDescLabel = document.createElement("label");
     taskDescLabel.htmlFor = "task-desc";
@@ -240,15 +243,17 @@ function createEditTaskModal(task, taskIndex) {
     taskDescInput.type = "text";
     taskDescInput.name = "task-desc";
     taskDescInput.setAttribute("id", "task-desc");
+    taskDescInput.value = task.description;
 
     const taskDueLabel = document.createElement("label");
     taskDueLabel.htmlFor = "task-due";
-    taskDueLabel.textContent = "Due Date"
+    taskDueLabel.textContent = "Due Date";
 
     const taskDueInput = document.createElement("input");
     taskDueInput.type = "text"; // Will change to calender
     taskDueInput.name = "task-due";
     taskDueInput.setAttribute("id", "task-due");
+    taskDueInput.value = task.dueDate;
 
     const taskPrioLabel = document.createElement("label");
     taskPrioLabel.htmlFor = "task-prio";
@@ -258,6 +263,7 @@ function createEditTaskModal(task, taskIndex) {
     taskPrioInput.type = "text"; // Will change to dropdown list (!, !!, !!!)
     taskPrioInput.name = "task-prio";
     taskPrioInput.setAttribute("id", "task-prio");
+    taskPrioInput.value = task.priority;
 
     const submitBtn = document.createElement("input");
     submitBtn.classList.add("modal-submit");
