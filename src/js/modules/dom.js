@@ -1,13 +1,12 @@
 // dom.js
 import TodoList from "./todo.js";
 import { createAddTodoModal, createEditTodoModal, createAddTaskModal, createEditTaskModal } from "./modal.js";
-
 const todoContainer = document.getElementById("todo-container");
 const addTodoBtn = document.getElementById("add-todo");
 const taskContainer = document.getElementById("task-container");
 const infoContainer = document.getElementById("info-container");
 
-// RENDER TODOS
+// RENDER TODOS (left container)
 function renderTodos() {
     todoContainer.innerHTML = "";
 
@@ -74,7 +73,7 @@ addTodoBtn.addEventListener("click", () => {
     createAddTodoModal();
 });
 
-// RENDER TASKS
+// RENDER TASKS (middle container)
 function renderTasks() {
     taskContainer.innerHTML = "";
 
@@ -147,6 +146,7 @@ function renderTasks() {
                 if (task.status === "Completed") {
                     taskCheckbox.checked = true;
                 };
+
                 // Append new task elements
                 taskContainer.appendChild(taskElement);
                 taskElement.appendChild(taskCheckbox);
@@ -190,7 +190,7 @@ function taskDeleteHandler(todoIndex, taskIndex) {
     };
 };
 
-// RENDER INFO
+// RENDER INFO (right-container)
 function renderInfo() {
     infoContainer.innerHTML = "";
     const todoItems = document.querySelectorAll(".todo-item");
@@ -207,37 +207,44 @@ function renderInfo() {
                     const infoTitle = document.createElement("h2");
                     infoTitle.classList.add("info-title");
                     infoTitle.textContent = `${task.title} (${task.status})`;
-
+                    // Create task info display
                     const infoDesc = document.createElement("p");
                     infoDesc.classList.add("info-desc");
                     infoDesc.textContent = task.description;
-
+                    // Create textarea for task.notes
                     const infoNotesLabel = document.createElement("p");
                     infoNotesLabel.textContent = "Notes";
                     const infoNotes = document.createElement("textarea");
                     infoNotes.classList.add("info-notes");
                     infoNotes.textContent = task.notes;
-
+                    // Add event listener to update notes (task.notes and textarea)
+                    infoNotes.addEventListener("input", updateNotes)
+                    function updateNotes(e) {
+                        infoNotes.textContent = e.target.value;
+                        task.notes = e.target.value;
+                    };
+                    // Create task dueDate display
                     const infoDue = document.createElement("p");
                     infoDue.classList.add("info-due");
                     infoDue.textContent = task.dueDate;
-
+                    // Create task priority display
                     const infoPrio = document.createElement("p");
                     infoPrio.classList.add("info-prio");
                     infoPrio.textContent = task.priority;
-
+                    // Create edit task button
                     const editBtn = document.createElement("button");
                     editBtn.textContent = "✎";
                     editBtn.classList.add("edit-task-btn");
                     editBtn.addEventListener("click", () => createEditTaskModal(task, taskIndex));
-
+                    // Create delete task button
                     const deleteBtn = document.createElement("button");
                     deleteBtn.textContent = "🗑";
                     deleteBtn.classList.add("delete-task-btn");
+                    // Add delete task functionality
                     deleteBtn.addEventListener("click", () => {
                         taskDeleteHandler(todoIndex, taskIndex);
                     });
-
+                    // Append elements
                     infoContainer.appendChild(infoTitle);
                     infoContainer.appendChild(infoPrio);
                     infoContainer.appendChild(infoDesc);
