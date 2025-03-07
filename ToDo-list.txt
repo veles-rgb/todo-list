@@ -6,7 +6,7 @@
              |_|  \____/|_____/ \____/          
 
 0. Stuff
-    - Consider making a modal module instead of having it flood the dom.js code
+    - C̶o̶n̶s̶i̶d̶e̶r̶ m̶a̶k̶i̶n̶g̶ a̶ m̶o̶d̶a̶l̶ m̶o̶d̶u̶l̶e̶ i̶n̶s̶t̶e̶a̶d̶ o̶f̶ h̶a̶v̶i̶n̶g̶ i̶t̶ f̶l̶o̶o̶d̶ t̶h̶e̶ d̶o̶m̶.̶j̶s̶ c̶o̶d̶e̶
     - When editing a task, autofill form with current task data
         -Do so by doing input.textContent = task.title etc...
     - Add comments to code (for readability)
