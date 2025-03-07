@@ -101,19 +101,6 @@ function renderTasks() {
                 taskCheckbox.type = "checkbox";
                 taskCheckbox.setAttribute("id", `cb-${taskIndex}`);
                 taskCheckbox.classList.add("task-checkbox");
-                // Change task.status upon being checked/unchecked
-                taskCheckbox.addEventListener("change", () => {
-                    if (taskCheckbox.checked) {
-                        task.status = "Completed";
-                    } else {
-                        task.status = "Incomplete";
-                    };
-                    renderInfo();
-                });
-                // Update checked if status completed (for re-render)
-                if (task.status === "Completed") {
-                    taskCheckbox.checked = true;
-                };
                 // Create task title
                 const taskTitle = document.createElement("p");
                 taskTitle.classList.add("task-item-title");
@@ -140,7 +127,31 @@ function renderTasks() {
                 deleteBtn.textContent = "🗑";
                 deleteBtn.classList.add("delete-task-btn");
                 deleteBtn.addEventListener("click", () => taskDeleteHandler(todoIndex, taskIndex));
-
+                // Change task.status upon being checked/unchecked
+                taskCheckbox.addEventListener("change", () => {
+                    if (taskCheckbox.checked) {
+                        task.status = "Completed";
+                    } else {
+                        task.status = "Incomplete";
+                    };
+                    // UPDATE TODO STATUS HERE!
+                    const taskCheckboxes = document.querySelectorAll(".task-checkbox");
+                    taskCheckboxes.forEach(checkbox => {
+                        if (checkbox.checked) {
+                            TodoList.getTodos()[todoIndex].status = "Completed";
+                        } else {
+                            TodoList.getTodos()[todoIndex].status = "Incomplete";
+                        };
+                        renderTodos();
+                        const todoItems = document.querySelectorAll(".todo-item");
+                        todoItems[todoIndex].classList.add("active-todo");
+                        renderInfo();
+                    });
+                });
+                // Update checked if status completed (for re-render)
+                if (task.status === "Completed") {
+                    taskCheckbox.checked = true;
+                };
                 // Append new task elements
                 taskContainer.appendChild(taskElement);
                 taskElement.appendChild(taskCheckbox);
