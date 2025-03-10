@@ -125,9 +125,6 @@ function renderTasks() {
                 }
                 taskDue.textContent = resultDate;
                 // Create task priority
-                const taskPrio = document.createElement("p");
-                taskPrio.classList.add("task-item-prio");
-                taskPrio.textContent = task.priority;
                 if (task.priority === "!") {
                     taskElement.classList.add("prio-low");
                 } else if (task.priority === "!!") {
@@ -135,6 +132,9 @@ function renderTasks() {
                 } else if (task.priority === "!!!") {
                     taskElement.classList.add("prio-high");
                 };
+                // Create buttons div
+                const taskButtons = document.createElement("div")
+                taskButtons.classList.add("task-buttons")
                 // Add edit task btn
                 const editBtn = document.createElement("button");
                 editBtn.textContent = "✎";
@@ -142,7 +142,7 @@ function renderTasks() {
                 editBtn.addEventListener("click", () => taskEditHandler(task, taskIndex));
                 // Add delete task btn
                 const deleteBtn = document.createElement("button");
-                deleteBtn.textContent = "🗑";
+                deleteBtn.textContent = "X";
                 deleteBtn.classList.add("delete-task-btn");
                 deleteBtn.addEventListener("click", () => taskDeleteHandler(todoIndex, taskIndex));
                 // Change task.status upon being checked/unchecked
@@ -172,9 +172,9 @@ function renderTasks() {
                 taskElement.appendChild(taskTitle);
                 taskElement.appendChild(taskDesc);
                 taskElement.appendChild(taskDue);
-                taskElement.appendChild(taskPrio);
-                taskElement.appendChild(editBtn);
-                taskElement.appendChild(deleteBtn);
+                taskElement.appendChild(taskButtons)
+                taskButtons.appendChild(editBtn);
+                taskButtons.appendChild(deleteBtn);
             });
         };
         // Task item eventListener (add active task class)
@@ -265,7 +265,7 @@ function renderInfo() {
                     editBtn.addEventListener("click", () => createEditTaskModal(task, taskIndex));
                     // Create delete task button
                     const deleteBtn = document.createElement("button");
-                    deleteBtn.textContent = "🗑";
+                    deleteBtn.textContent = "X";
                     deleteBtn.classList.add("delete-task-btn");
                     // Add delete task functionality
                     deleteBtn.addEventListener("click", () => {
