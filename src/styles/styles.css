@@ -97,12 +97,32 @@ form {
     border-right: var(--2px) solid var(--main-border-color);
 }
 
+.add-task-btn {
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    width: 10rem;
+    height: 2rem;
+    background-color: var(--background-color);
+    color: var(--alt-font-color);
+    border: 1px solid var(--main-border-color);
+}
+
+.add-task-btn:hover {
+    background-color: rgba(255, 217, 0, 0.2);
+    cursor: pointer;
+}
+
 .task-item {
     height: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 4px;
+}
+
+.task-item:hover {
+    border: 1px solid var(--main-border-color);
 }
 
 .task-checkbox {
@@ -123,6 +143,8 @@ form {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: underline;
 }
 
 .task-buttons {

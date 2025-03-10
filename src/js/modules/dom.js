@@ -85,6 +85,7 @@ function renderTasks() {
             const addTaskBtn = document.createElement("button");
             addTaskBtn.textContent = "Add task";
             addTaskBtn.setAttribute("id", "#add-task");
+            addTaskBtn.classList.add("add-task-btn");
             taskContainer.appendChild(addTaskBtn);
             // addTaskBtn event listener (add to active todo's tasks)
             addTaskBtn.addEventListener("click", () => {
