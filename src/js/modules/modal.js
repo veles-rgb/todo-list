@@ -160,16 +160,30 @@ function createAddTaskModal(todoIndex) {
     taskDueInput.type = "datetime-local";
     taskDueInput.name = "task-due";
     taskDueInput.setAttribute("id", "task-due");
-
+    // Create task priority label
     const taskPrioLabel = document.createElement("label");
     taskPrioLabel.htmlFor = "task-prio";
     taskPrioLabel.textContent = "Task Priority";
-
-    const taskPrioInput = document.createElement("input");
-    taskPrioInput.type = "text"; // Will change to dropdown list (!, !!, !!!)
+    // Create task priority selection dropdown
+    const taskPrioInput = document.createElement("select");
     taskPrioInput.name = "task-prio";
     taskPrioInput.setAttribute("id", "task-prio");
-
+    // Priority option 1 (low)
+    const taskPrioOption1 = document.createElement("option");
+    taskPrioOption1.value = "!"
+    taskPrioOption1.textContent = "!"
+    taskPrioInput.appendChild(taskPrioOption1);
+    // Priority option 2 (medium)
+    const taskPrioOption2 = document.createElement("option");
+    taskPrioOption2.value = "!!"
+    taskPrioOption2.textContent = "!!"
+    taskPrioInput.appendChild(taskPrioOption2);
+    // Priority option 3 (high)
+    const taskPrioOption3 = document.createElement("option");
+    taskPrioOption3.value = "!!!"
+    taskPrioOption3.textContent = "!!!"
+    taskPrioInput.appendChild(taskPrioOption3);
+    // Create form submit button
     const submitBtn = document.createElement("input");
     submitBtn.classList.add("modal-submit");
     submitBtn.type = "submit";
@@ -260,10 +274,25 @@ function createEditTaskModal(task, taskIndex) {
     taskPrioLabel.htmlFor = "task-prio";
     taskPrioLabel.textContent = "Task Priority";
 
-    const taskPrioInput = document.createElement("input");
-    taskPrioInput.type = "text"; // Will change to dropdown list (!, !!, !!!)
+    // Create task priority selection dropdown
+    const taskPrioInput = document.createElement("select");
     taskPrioInput.name = "task-prio";
     taskPrioInput.setAttribute("id", "task-prio");
+    // Priority option 1 (low)
+    const taskPrioOption1 = document.createElement("option");
+    taskPrioOption1.value = "!"
+    taskPrioOption1.textContent = "!"
+    taskPrioInput.appendChild(taskPrioOption1);
+    // Priority option 2 (medium)
+    const taskPrioOption2 = document.createElement("option");
+    taskPrioOption2.value = "!!"
+    taskPrioOption2.textContent = "!!"
+    taskPrioInput.appendChild(taskPrioOption2);
+    // Priority option 3 (high)
+    const taskPrioOption3 = document.createElement("option");
+    taskPrioOption3.value = "!!!"
+    taskPrioOption3.textContent = "!!!"
+    taskPrioInput.appendChild(taskPrioOption3);
     taskPrioInput.value = task.priority;
 
     const submitBtn = document.createElement("input");
