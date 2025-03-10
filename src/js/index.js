@@ -9,9 +9,10 @@ function addDefault() {
     const defaultTodo1 = TodoList.addTodo("Make A Todo App", "Incomplete");
     defaultTodo1.tasks.push(new Task("Do this", "Description", "2025-03-10T15:30", "!!!"));
     defaultTodo1.tasks.push(new Task("Do that", "Description", "2025-12-25T08:15", "!!"));
+    defaultTodo1.tasks.push(new Task("Title", "Description", "2026-08-04T19:45", "!"));
     const defaultTodo2 = TodoList.addTodo("Test", "Incomplete");
     defaultTodo2.tasks.push(new Task("Title", "Description", "2026-07-04T19:45", "!"));
-    defaultTodo2.tasks[0].notes = "test"
+    defaultTodo2.tasks[0].notes = "test";
 };
 
 addDefault();
