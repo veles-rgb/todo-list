@@ -1,6 +1,7 @@
 // dom.js
 import TodoList from "./todo.js";
 import { createAddTodoModal, createEditTodoModal, createAddTaskModal, createEditTaskModal } from "./modal.js";
+import { format, parse, formatDistance, differenceInSeconds } from "date-fns";
 const todoContainer = document.getElementById("todo-container");
 const addTodoBtn = document.getElementById("add-todo");
 const taskContainer = document.getElementById("task-container");
@@ -111,7 +112,18 @@ function renderTasks() {
                 // Create task dueDate
                 const taskDue = document.createElement("p");
                 taskDue.classList.add("task-item-due");
-                taskDue.textContent = task.dueDate;
+                // Get dueDate in date-fns formatDistance (ex: 1 hour 23 minutes...)
+                const now = new Date(Date.now());
+                const dueDate = new Date(task.dueDate);
+                // Get the difference in seconds
+                const diffSeconds = differenceInSeconds(dueDate, now);
+                // Format the distance
+                let resultDate = formatDistance(now, dueDate, { includeSeconds: true });
+                // If the date has passed, add "ago" to the end
+                if (diffSeconds < 0) {
+                    resultDate = `${resultDate} ago`;
+                }
+                taskDue.textContent = resultDate;
                 // Create task priority
                 const taskPrio = document.createElement("p");
                 taskPrio.classList.add("task-item-prio");
@@ -231,7 +243,10 @@ function renderInfo() {
                     // Create task dueDate display
                     const infoDue = document.createElement("p");
                     infoDue.classList.add("info-due");
-                    infoDue.textContent = task.dueDate;
+                    const originalDate = task.dueDate;
+                    const date = parse(originalDate, 'yyyy-MM-dd\'T\'HH:mm', new Date())
+                    const dateResult = format(date, 'PPPp')
+                    infoDue.textContent = dateResult;
                     // Create task priority display
                     const infoPrio = document.createElement("p");
                     infoPrio.classList.add("info-prio");

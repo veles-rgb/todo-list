@@ -1,5 +1,6 @@
 // modal.js
 import { renderTasks, renderTodos, renderInfo } from "./dom.js";
+import { format, parse, formatDistance } from "date-fns";
 import Task from "./task.js";
 import TodoList from "./todo.js";
 
@@ -156,7 +157,7 @@ function createAddTaskModal(todoIndex) {
     taskDueLabel.textContent = "Due Date"
 
     const taskDueInput = document.createElement("input");
-    taskDueInput.type = "text"; // Will change to calender
+    taskDueInput.type = "datetime-local";
     taskDueInput.name = "task-due";
     taskDueInput.setAttribute("id", "task-due");
 
@@ -250,7 +251,7 @@ function createEditTaskModal(task, taskIndex) {
     taskDueLabel.textContent = "Due Date";
 
     const taskDueInput = document.createElement("input");
-    taskDueInput.type = "text"; // Will change to calender
+    taskDueInput.type = "datetime-local"; // Will change to calender
     taskDueInput.name = "task-due";
     taskDueInput.setAttribute("id", "task-due");
     taskDueInput.value = task.dueDate;
