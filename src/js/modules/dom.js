@@ -128,6 +128,13 @@ function renderTasks() {
                 const taskPrio = document.createElement("p");
                 taskPrio.classList.add("task-item-prio");
                 taskPrio.textContent = task.priority;
+                if (task.priority === "!") {
+                    taskElement.classList.add("prio-low");
+                } else if (task.priority === "!!") {
+                    taskElement.classList.add("prio-medium");
+                } else if (task.priority === "!!!") {
+                    taskElement.classList.add("prio-high");
+                };
                 // Add edit task btn
                 const editBtn = document.createElement("button");
                 editBtn.textContent = "✎";
