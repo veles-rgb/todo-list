@@ -251,7 +251,7 @@ function createEditTaskModal(task, taskIndex) {
     taskDueLabel.textContent = "Due Date";
 
     const taskDueInput = document.createElement("input");
-    taskDueInput.type = "datetime-local"; // Will change to calender
+    taskDueInput.type = "datetime-local";
     taskDueInput.name = "task-due";
     taskDueInput.setAttribute("id", "task-due");
     taskDueInput.value = task.dueDate;
