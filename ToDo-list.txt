@@ -33,7 +33,7 @@
     - F̶o̶r̶ e̶a̶c̶h̶ t̶a̶s̶k̶ i̶n̶ a̶ t̶o̶d̶o̶,̶ c̶r̶e̶a̶t̶e̶ a̶ c̶h̶e̶c̶k̶b̶o̶x̶ i̶n̶s̶i̶d̶e̶ t̶h̶e̶ t̶a̶s̶k̶E̶l̶e̶m̶e̶n̶t̶ d̶i̶v̶
     - C̶o̶n̶n̶e̶c̶t̶ t̶h̶e̶ c̶h̶e̶c̶k̶b̶o̶x̶ v̶a̶l̶u̶e̶ t̶o̶ t̶h̶e̶ t̶h̶i̶s̶.̶s̶t̶a̶t̶u̶s̶ o̶f̶ t̶h̶e̶ c̶o̶r̶r̶e̶s̶p̶o̶n̶d̶i̶n̶g̶ t̶a̶s̶k̶
     - I̶f̶ a̶l̶l̶ c̶h̶e̶c̶k̶b̶o̶x̶e̶s̶ i̶n̶ a̶ a̶r̶e̶ "̶C̶h̶e̶c̶k̶e̶d̶"̶ t̶h̶e̶n̶ t̶o̶d̶o̶.̶s̶t̶a̶t̶u̶s̶ =̶ C̶o̶m̶p̶l̶e̶t̶e̶
-    - Use date picker when creating a new task for this.dueDate turn it into a readable date with date-fns
+    - U̶s̶e̶ d̶a̶t̶e̶ p̶i̶c̶k̶e̶r̶ w̶h̶e̶n̶ c̶r̶e̶a̶t̶i̶n̶g̶ a̶ n̶e̶w̶ t̶a̶s̶k̶ f̶o̶r̶ t̶h̶i̶s̶.̶d̶u̶e̶D̶a̶t̶e̶ t̶u̶r̶n̶ i̶t̶ i̶n̶t̶o̶ a̶ r̶e̶a̶d̶a̶b̶l̶e̶ d̶a̶t̶e̶ w̶i̶t̶h̶ d̶a̶t̶e̶-̶f̶n̶s̶
     - Make priority options a dropdown list between (!, !!, !!!)
     - I̶n̶s̶t̶e̶a̶d̶ o̶f̶ u̶s̶i̶n̶g̶ p̶r̶o̶m̶p̶t̶s̶ t̶o̶ a̶d̶d̶ n̶e̶w̶ t̶a̶s̶k̶,̶ c̶r̶e̶a̶t̶e̶ m̶o̶d̶a̶l̶ w̶i̶t̶h̶ f̶o̶r̶m̶ (̶a̶d̶d̶T̶a̶s̶k̶B̶t̶n̶ E̶v̶e̶n̶t̶L̶i̶s̶t̶e̶n̶e̶r̶)̶
     - I̶n̶s̶t̶e̶a̶d̶ o̶f̶ u̶s̶i̶n̶g̶ p̶r̶o̶m̶p̶t̶s̶ t̶o̶ e̶d̶i̶t̶ t̶a̶s̶k̶,̶ c̶r̶e̶a̶t̶e̶ m̶o̶d̶a̶l̶ w̶i̶t̶h̶ f̶o̶r̶m̶ (̶t̶a̶s̶k̶E̶d̶i̶t̶H̶a̶n̶d̶l̶e̶r̶)̶
