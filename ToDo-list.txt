@@ -66,3 +66,4 @@
 6. Styles Stuff
     - P̶i̶c̶k̶ c̶o̶l̶o̶r̶ s̶c̶h̶e̶m̶e̶
     - Mess around with fonts
+    - Modal styles
