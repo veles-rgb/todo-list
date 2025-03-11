@@ -25,7 +25,6 @@ body {
 
 header {
     grid-area: header;
-    border-bottom: var(--2px) solid var(--main-border-color);
 }
 
 header h1 {
@@ -84,7 +83,6 @@ form {
 /* Content Left Styles */
 #content-left {
     grid-area: left;
-    border-right: var(--2px) solid var(--main-border-color);
 }
 
 .add-todo-btn {
@@ -180,7 +178,7 @@ form {
 /* Content Middle Styles */
 #content-middle {
     grid-area: middle;
-    border-right: var(--2px) solid var(--main-border-color);
+    display: none;
 }
 
 .add-task-btn {
@@ -325,7 +323,7 @@ input[type=checkbox]:checked::before {
 /* Content Right Styles */
 #content-right {
     grid-area: right;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 }
@@ -462,5 +460,8 @@ input[type=checkbox]:checked::before {
 /* Footer Styles */
 footer {
     grid-area: footer;
-    border-top: var(--2px) solid var(--main-border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--alt-font-color);
 }
