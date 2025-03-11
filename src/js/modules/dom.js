@@ -111,6 +111,8 @@ function renderTasks() {
             addTaskBtn.addEventListener("click", () => {
                 createAddTaskModal(todoIndex);
             });
+            contentMiddle.appendChild(sectionTitle);
+            contentMiddle.appendChild(taskContainer);
             // Create task elements
             TodoList.getTodos()[todoIndex].tasks.forEach((task, taskIndex) => {
                 // Create task divs
@@ -189,14 +191,12 @@ function renderTasks() {
                 };
 
                 // Append new task elements
-                contentMiddle.appendChild(sectionTitle);
-                contentMiddle.appendChild(taskContainer);
                 taskContainer.appendChild(taskElement);
                 taskElement.appendChild(taskCheckbox);
                 taskElement.appendChild(taskTitle);
                 taskElement.appendChild(taskDesc);
                 taskElement.appendChild(taskDue);
-                taskElement.appendChild(taskButtons)
+                taskElement.appendChild(taskButtons);
                 taskButtons.appendChild(editBtn);
                 taskButtons.appendChild(deleteBtn);
             });
