@@ -83,7 +83,13 @@ form {
 /* Content Left Styles */
 #content-left {
     grid-area: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
+
+
 
 .add-todo-btn {
     margin-bottom: 1.5rem;
@@ -104,12 +110,18 @@ form {
     cursor: pointer;
 }
 
+#todo-container {
+    width: 100%;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
 .todo-item {
+    width: 100%;
     height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 0.5rem;
 }
 
 .todo-item:hover {
@@ -181,6 +193,12 @@ form {
     display: none;
 }
 
+#task-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .add-task-btn {
     margin-bottom: 1.5rem;
     display: flex;
@@ -201,6 +219,7 @@ form {
 }
 
 .task-item {
+    width: 100%;
     height: 3rem;
     display: flex;
     justify-content: space-between;
@@ -330,11 +349,14 @@ input[type=checkbox]:checked::before {
 
 #info-container {
     height: 80%;
-    width: 80%;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    border: 2px solid var(--main-border-color);
+    padding: 1rem;
+    margin-right: 5px;
 }
 
 .info-status {
