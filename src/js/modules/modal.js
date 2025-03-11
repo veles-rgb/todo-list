@@ -231,16 +231,22 @@ function createAddTaskModal(todoIndex) {
         const taskPrio = formData.get("task-prio");
 
         TodoList.getTodos()[todoIndex].tasks.push(new Task(taskTitle, taskDesc, taskDue, taskPrio));
+
         TodoList.getTodos()[todoIndex].status = "Incomplete";
-        const todoStatus = document.querySelector(".todo-item-status");
-        todoStatus.classList.remove("completed-todo");
-        todoStatus.classList.add("incomplete-todo");
+        renderTodos();
+        const todoItems = document.querySelectorAll(".todo-item");
+        if (!todoItems[todoIndex].classList.contains("active-todo")) {
+            todoItems.forEach((item) => {
+                item.classList.remove("active-todo");
+            });
+            todoItems[todoIndex].classList.add("active-todo");
+        };
         renderTasks();
         const taskItems = document.querySelectorAll(".task-item");
         const newestTask = taskItems[taskItems.length - 1];
         newestTask.classList.add("active-task");
         renderInfo();
-        addTaskModal.close();
+        addTaskModal.remove();
     });
 };
 
