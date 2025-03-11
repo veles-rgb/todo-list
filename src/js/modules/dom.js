@@ -120,7 +120,8 @@ function renderTasks() {
                 // Create task description
                 const taskDesc = document.createElement("p");
                 taskDesc.classList.add("task-item-desc");
-                taskDesc.textContent = task.description;
+                const shortDescription = task.description.slice(0, 11);
+                taskDesc.textContent = `${shortDescription}...`;
                 // Create task dueDate
                 const taskDue = document.createElement("p");
                 taskDue.classList.add("task-item-due");
@@ -239,17 +240,46 @@ function renderInfo() {
                     const infoStatus = document.createElement("h3");
                     infoStatus.classList.add("info-status");
                     infoStatus.textContent = task.status;
+                    if (task.status === "Incomplete") {
+                        infoStatus.classList.add("incomplete-task");
+                        infoStatus.classList.remove("completed-task")
+                    } else if (task.status === "Completed") {
+                        infoStatus.classList.add("completed-task");
+                        infoStatus.classList.remove("incomplete-task");
+                    }
+                    // Create title and desc div
+                    const infoTitleDesc = document.createElement("div");
+                    infoTitleDesc.classList.add("info-title-desc")
+                    // Create task title and prio div
+                    const infoTitlePrioDiv = document.createElement("div")
+                    infoTitlePrioDiv.classList.add("info-title-prio")
                     // Create task title display
                     const infoTitle = document.createElement("h2");
                     infoTitle.classList.add("info-title");
                     infoTitle.textContent = task.title;
-                    // Create task info display
+                    // Create task priority display
+                    const infoPrio = document.createElement("p");
+                    infoPrio.classList.add("info-prio");
+                    infoPrio.textContent = `(${task.priority})`;
+                    // Add Prio status class
+                    if (task.priority === "!") {
+                        infoPrio.classList.add("info-prio-low");
+                    } else if (task.priority === "!!") {
+                        infoPrio.classList.add("info-prio-medium");
+                    } else if (task.priority === "!!!") {
+                        infoPrio.classList.add("info-prio-high");
+                    };
+                    // Create task description display
                     const infoDesc = document.createElement("p");
                     infoDesc.classList.add("info-desc");
                     infoDesc.textContent = task.description;
+                    // Create info notes label and textarea div
+                    const infoNotesDiv = document.createElement("div");
+                    infoNotesDiv.classList.add("info-notes-div")
                     // Create textarea for task.notes
                     const infoNotesLabel = document.createElement("p");
-                    infoNotesLabel.textContent = "Notes";
+                    infoNotesLabel.classList.add("info-notes-label")
+                    infoNotesLabel.textContent = "Task Notes";
                     const infoNotes = document.createElement("textarea");
                     infoNotes.classList.add("info-notes");
                     infoNotes.textContent = task.notes;
@@ -259,6 +289,13 @@ function renderInfo() {
                         infoNotes.textContent = e.target.value;
                         task.notes = e.target.value;
                     };
+                    // Create task dueDate label and display div
+                    const dueDateAndLabel = document.createElement("div");
+                    dueDateAndLabel.classList.add("due-date-div")
+                    // Create task dueDate label
+                    const infoDueLabel = document.createElement("p");
+                    infoDueLabel.classList.add("info-due-label");
+                    infoDueLabel.textContent = "Due Date";
                     // Create task dueDate display
                     const infoDue = document.createElement("p");
                     infoDue.classList.add("info-due");
@@ -266,10 +303,9 @@ function renderInfo() {
                     const date = parse(originalDate, 'yyyy-MM-dd\'T\'HH:mm', new Date())
                     const dateResult = format(date, 'PPPp')
                     infoDue.textContent = dateResult;
-                    // Create task priority display
-                    const infoPrio = document.createElement("p");
-                    infoPrio.classList.add("info-prio");
-                    infoPrio.textContent = task.priority;
+                    // Create buttons div
+                    const infoBtns = document.createElement("div");
+                    infoBtns.classList.add("info-buttons");
                     // Create edit task button
                     const editBtn = document.createElement("button");
                     editBtn.textContent = "✎";
@@ -285,14 +321,20 @@ function renderInfo() {
                     });
                     // Append elements
                     infoContainer.appendChild(infoStatus);
-                    infoContainer.appendChild(infoTitle);
-                    infoContainer.appendChild(infoPrio);
-                    infoContainer.appendChild(infoDesc);
-                    infoContainer.appendChild(infoNotesLabel);
-                    infoContainer.appendChild(infoNotes);
-                    infoContainer.appendChild(infoDue);
-                    infoContainer.appendChild(editBtn);
-                    infoContainer.appendChild(deleteBtn);
+                    infoContainer.appendChild(infoTitleDesc);
+                    infoTitleDesc.appendChild(infoTitlePrioDiv)
+                    infoTitlePrioDiv.appendChild(infoTitle);
+                    infoTitlePrioDiv.appendChild(infoPrio);
+                    infoTitleDesc.appendChild(infoDesc);
+                    infoContainer.appendChild(infoNotesDiv)
+                    infoNotesDiv.appendChild(infoNotesLabel);
+                    infoNotesDiv.appendChild(infoNotes);
+                    infoContainer.appendChild(dueDateAndLabel)
+                    dueDateAndLabel.appendChild(infoDueLabel);
+                    dueDateAndLabel.appendChild(infoDue);
+                    infoContainer.appendChild(infoBtns);
+                    infoBtns.appendChild(editBtn);
+                    infoBtns.appendChild(deleteBtn);
                 };
             });
         };
