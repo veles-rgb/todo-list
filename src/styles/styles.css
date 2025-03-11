@@ -15,10 +15,10 @@ body {
 #main-container {
     height: 100vh;
     display: grid;
-    grid-template-areas: 
-    "header header header"
-    "content content content"
-    "footer footer footer";
+    grid-template-areas:
+        "header header header"
+        "content content content"
+        "footer footer footer";
     grid-template-rows: 2fr 20fr 1.5fr;
     grid-template-columns: 1fr 1fr 1fr;
 }
@@ -37,8 +37,8 @@ header h1 {
 /* Main Content Styles */
 #content {
     display: grid;
-    grid-template-areas: 
-    "left middle right";
+    grid-template-areas:
+        "left middle right";
     grid-template-columns: 2fr 5fr 2fr;
     grid-area: content;
 }
@@ -46,6 +46,7 @@ header h1 {
 .section-title {
     text-align: center;
     color: var(--alt-font-color);
+    padding: 1rem;
 }
 
 /* Modal Styles */
@@ -86,9 +87,91 @@ form {
     border-right: var(--2px) solid var(--main-border-color);
 }
 
-.todo-item {
+.add-todo-btn {
+    margin-bottom: 1.5rem;
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    width: 10rem;
+    height: 2rem;
+    height: 2.5rem;
+    background-color: var(--background-color);
+    color: var(--alt-font-color);
+    border: 1px solid var(--main-border-color);
+}
+
+.add-todo-btn:hover {
+    background-color: rgba(255, 217, 0, 0.2);
+    cursor: pointer;
+}
+
+.todo-item {
+    height: 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--main-border-color);
+}
+
+.todo-item:hover {
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.active-todo {
+    border: 1px solid white;
+}
+
+.completed-todo {
+    background-color: rgba(0, 128, 0, 0.5);
+}
+
+.incomplete-todo {
+    background-color: rgba(255, 0, 0, 0.5);
+}
+
+.todo-item-name {
+    width: 10rem;
+    max-width: 10rem;
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    font-size: 1.2rem;
+    margin-left: 1rem;
+}
+
+.todo-item-status {
+    width: 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.2rem;
+    color: white;
+}
+
+.todo-buttons {
+    height: 100%;
+    width: 8rem;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.edit-todo-btn,
+.delete-todo-btn {
+    height: 100%;
+    width: 5rem;
+    background-color: var(--background-color);
+    color: var(--alt-font-color);
+    border: none;
+    border-left: 1px solid var(--main-border-color);
+}
+
+.edit-todo-btn:hover,
+.delete-todo-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }
 
 /* Content Middle Styles */
@@ -98,12 +181,14 @@ form {
 }
 
 .add-task-btn {
+    margin-bottom: 1.5rem;
     display: flex;
     justify-content: center;
     justify-self: center;
     align-items: center;
     width: 10rem;
     height: 2rem;
+    height: 2.5rem;
     background-color: var(--background-color);
     color: var(--alt-font-color);
     border: 1px solid var(--main-border-color);
@@ -115,18 +200,59 @@ form {
 }
 
 .task-item {
-    height: 2rem;
+    height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0.5rem;
 }
 
 .task-item:hover {
-    border: 1px solid var(--main-border-color);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
 }
 
-.task-checkbox {
-    width: 5rem;
+.active-task {
+    border: 1px solid white;
+}
+
+input[type="checkbox"] {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: gold;
+    vertical-align: middle;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    outline: 0;
+    flex-grow: 0;
+    border-radius: 50%;
+    background-color: black;
+    transition: background 300ms;
+    cursor: pointer;
+    margin-left: 1rem;
+}
+
+input[type=checkbox]::before {
+    content: "";
+    color: transparent;
+    display: block;
+    width: inherit;
+    height: inherit;
+    border-radius: inherit;
+    border: 0;
+    background-color: transparent;
+    background-size: contain;
+    box-shadow: inset 0 0 0 2px gold;
+}
+
+input[type=checkbox]:checked {
+    background-color: currentcolor;
+}
+
+input[type=checkbox]:checked::before {
+    box-shadow: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E %3Cpath d='M15.88 8.29L10 14.17l-1.88-1.88a.996.996 0 1 0-1.41 1.41l2.59 2.59c.39.39 1.02.39 1.41 0L17.3 9.7a.996.996 0 0 0 0-1.41c-.39-.39-1.03-.39-1.42 0z' fill='%23fff'/%3E %3C/svg%3E");
 }
 
 .task-item-title,

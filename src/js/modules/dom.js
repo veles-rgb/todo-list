@@ -24,6 +24,16 @@ function renderTodos() {
         const todoStatus = document.createElement("p");
         todoStatus.classList.add("todo-item-status");
         todoStatus.textContent = todo.status;
+        if (todo.status === "Incomplete") {
+            todoStatus.classList.add("incomplete-todo");
+            todoStatus.classList.remove("completed-todo")
+        } else if (todo.status === "Completed") {
+            todoStatus.classList.add("completed-todo");
+            todoStatus.classList.remove("incomplete-todo");
+        }
+        // Create buttons div
+        const todoBtns = document.createElement("div")
+        todoBtns.classList.add("todo-buttons")
         // Create edit todo btn
         const editBtn = document.createElement("button");
         editBtn.textContent = "✎";
@@ -31,14 +41,15 @@ function renderTodos() {
         editBtn.addEventListener("click", () => createEditTodoModal(todoIndex));
         // Create delete todo btn
         const deleteBtn = document.createElement("button");
-        deleteBtn.textContent = "🗑";
+        deleteBtn.textContent = "X";
         deleteBtn.classList.add("delete-todo-btn")
         deleteBtn.addEventListener("click", () => TodoDeleteHandler(todoIndex));
         // Append elements
         todoElement.appendChild(todoName);
         todoElement.appendChild(todoStatus);
-        todoElement.appendChild(editBtn);
-        todoElement.appendChild(deleteBtn);
+        todoElement.appendChild(todoBtns)
+        todoBtns.appendChild(editBtn);
+        todoBtns.appendChild(deleteBtn);
         todoContainer.appendChild(todoElement);
     });
     // Todo item eventListener
