@@ -12,6 +12,10 @@ function createAddTodoModal() {
     const addTodoForm = document.createElement("form");
     addTodoForm.setAttribute("id", "add-todo-form");
 
+    // Create a div for closeBtn and title
+    const closeAndTitle = document.createElement("div");
+    closeAndTitle.classList.add("modal-close-title");
+
     const modalCloseBtn = document.createElement("button");
     modalCloseBtn.classList.add("modal-close-btn");
     modalCloseBtn.textContent = "X";
@@ -36,9 +40,10 @@ function createAddTodoModal() {
     submitBtn.value = "Add";
 
     document.body.appendChild(addTodoModal);
-    addTodoModal.appendChild(modalCloseBtn)
-    addTodoModal.appendChild(modalTitle);
-    addTodoModal.appendChild(addTodoForm)
+    addTodoModal.appendChild(closeAndTitle);
+    closeAndTitle.appendChild(modalTitle);
+    closeAndTitle.appendChild(modalCloseBtn);
+    addTodoModal.appendChild(addTodoForm);
     addTodoForm.appendChild(todoNameLabel);
     addTodoForm.appendChild(todoNameInput);
     addTodoForm.appendChild(submitBtn);
@@ -69,6 +74,10 @@ function createEditTodoModal(index) {
     const editTodoForm = document.createElement("form");
     editTodoForm.setAttribute("id", "edit-todo-form");
 
+    // Create a div for closeBtn and title
+    const closeAndTitle = document.createElement("div");
+    closeAndTitle.classList.add("modal-close-title");
+
     const modalCloseBtn = document.createElement("button");
     modalCloseBtn.classList.add("modal-close-btn");
     modalCloseBtn.textContent = "X";
@@ -94,8 +103,9 @@ function createEditTodoModal(index) {
     submitBtn.value = "Edit";
 
     document.body.appendChild(editTodoModal);
-    editTodoModal.appendChild(modalCloseBtn);
-    editTodoModal.appendChild(modalTitle);
+    editTodoModal.appendChild(closeAndTitle);
+    closeAndTitle.appendChild(modalTitle);
+    closeAndTitle.appendChild(modalCloseBtn);
     editTodoModal.appendChild(editTodoForm);
     editTodoForm.appendChild(todoNameLabel);
     editTodoForm.appendChild(todoNameInput);
@@ -124,6 +134,10 @@ function createAddTaskModal(todoIndex) {
 
     const addTaskForm = document.createElement("form");
     addTaskForm.setAttribute("id", "add-task-form");
+
+    // Create a div for closeBtn and title
+    const closeAndTitle = document.createElement("div");
+    closeAndTitle.classList.add("modal-close-title");
 
     const modalCloseBtn = document.createElement("button");
     modalCloseBtn.classList.add("modal-close-btn");
@@ -170,16 +184,19 @@ function createAddTaskModal(todoIndex) {
     taskPrioInput.setAttribute("id", "task-prio");
     // Priority option 1 (low)
     const taskPrioOption1 = document.createElement("option");
+    taskPrioOption1.classList.add("prio-option-low")
     taskPrioOption1.value = "!"
     taskPrioOption1.textContent = "!"
     taskPrioInput.appendChild(taskPrioOption1);
     // Priority option 2 (medium)
     const taskPrioOption2 = document.createElement("option");
+    taskPrioOption2.classList.add("prio-option-medium")
     taskPrioOption2.value = "!!"
     taskPrioOption2.textContent = "!!"
     taskPrioInput.appendChild(taskPrioOption2);
     // Priority option 3 (high)
     const taskPrioOption3 = document.createElement("option");
+    taskPrioOption3.classList.add("prio-option-high")
     taskPrioOption3.value = "!!!"
     taskPrioOption3.textContent = "!!!"
     taskPrioInput.appendChild(taskPrioOption3);
@@ -190,8 +207,9 @@ function createAddTaskModal(todoIndex) {
     submitBtn.value = "Add";
 
     document.body.appendChild(addTaskModal);
-    addTaskModal.appendChild(modalCloseBtn);
-    addTaskModal.appendChild(modalTitle);
+    addTaskModal.appendChild(closeAndTitle);
+    closeAndTitle.appendChild(modalTitle);
+    closeAndTitle.appendChild(modalCloseBtn);
     addTaskModal.appendChild(addTaskForm);
     addTaskForm.appendChild(taskTitleLabel);
     addTaskForm.appendChild(taskTitleInput);
@@ -234,6 +252,10 @@ function createEditTaskModal(task, taskIndex) {
 
     const editTaskForm = document.createElement("form");
     editTaskForm.setAttribute("id", "edit-task-form");
+
+    // Create a div for closeBtn and title
+    const closeAndTitle = document.createElement("div");
+    closeAndTitle.classList.add("modal-close-title");
 
     const modalCloseBtn = document.createElement("button");
     modalCloseBtn.classList.add("modal-close-btn");
@@ -305,8 +327,9 @@ function createEditTaskModal(task, taskIndex) {
     submitBtn.value = "Edit";
 
     document.body.appendChild(editTaskModal);
-    editTaskModal.appendChild(modalCloseBtn);
-    editTaskModal.appendChild(modalTitle);
+    editTaskModal.appendChild(closeAndTitle);
+    closeAndTitle.appendChild(modalTitle);
+    closeAndTitle.appendChild(modalCloseBtn);
     editTaskModal.appendChild(editTaskForm);
     editTaskForm.appendChild(taskTitleLabel);
     editTaskForm.appendChild(taskTitleInput);
