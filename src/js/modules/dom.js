@@ -4,7 +4,9 @@ import { createAddTodoModal, createEditTodoModal, createAddTaskModal, createEdit
 import { format, parse, formatDistance, differenceInSeconds } from "date-fns";
 const todoContainer = document.getElementById("todo-container");
 const addTodoBtn = document.getElementById("add-todo");
+const contentMiddle = document.getElementById("content-middle");
 const taskContainer = document.getElementById("task-container");
+const contentRight = document.getElementById("content-right");
 const infoContainer = document.getElementById("info-container");
 
 // RENDER TODOS (left container)
@@ -87,11 +89,18 @@ addTodoBtn.addEventListener("click", () => {
 
 // RENDER TASKS (middle container)
 function renderTasks() {
+    contentMiddle.innerHTML = "";
     taskContainer.innerHTML = "";
 
     const todoItems = document.querySelectorAll(".todo-item");
     todoItems.forEach((item, todoIndex) => {
         if (item.classList.contains("active-todo")) {
+            // Render content middle
+            contentMiddle.style.display = "block";
+            // Create content middle section title
+            const sectionTitle = document.createElement("h1");
+            sectionTitle.classList.add("section-title");
+            sectionTitle.textContent = `Tasks (${TodoList.getTodos()[todoIndex].name})`;
             // Create add task btn
             const addTaskBtn = document.createElement("button");
             addTaskBtn.textContent = "Add task";
@@ -180,6 +189,8 @@ function renderTasks() {
                 };
 
                 // Append new task elements
+                contentMiddle.appendChild(sectionTitle);
+                contentMiddle.appendChild(taskContainer);
                 taskContainer.appendChild(taskElement);
                 taskElement.appendChild(taskCheckbox);
                 taskElement.appendChild(taskTitle);
@@ -224,7 +235,9 @@ function taskDeleteHandler(todoIndex, taskIndex) {
 
 // RENDER INFO (right-container)
 function renderInfo() {
+    contentRight.innerHTML = "";
     infoContainer.innerHTML = "";
+
     const todoItems = document.querySelectorAll(".todo-item");
     const taskItems = document.querySelectorAll(".task-item")
     // Loop through todos in DOM with index
@@ -236,6 +249,12 @@ function renderInfo() {
                 // Find active task in DOM using task index
                 if (taskItems[taskIndex].classList.contains("active-task")) {
                     // Create info DOM elements
+                    // Render content right
+                    contentRight.style.display = "flex"
+                    // Create content right section title
+                    const sectionTitle = document.createElement("h1");
+                    sectionTitle.classList.add("section-title");
+                    sectionTitle.textContent = "Info";
                     // Create task status display
                     const infoStatus = document.createElement("h3");
                     infoStatus.classList.add("info-status");
@@ -320,6 +339,8 @@ function renderInfo() {
                         taskDeleteHandler(todoIndex, taskIndex);
                     });
                     // Append elements
+                    contentRight.appendChild(sectionTitle);
+                    contentRight.appendChild(infoContainer);
                     infoContainer.appendChild(infoStatus);
                     infoContainer.appendChild(infoTitleDesc);
                     infoTitleDesc.appendChild(infoTitlePrioDiv)
