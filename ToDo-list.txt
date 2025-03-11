@@ -56,8 +56,8 @@
     - Add restrictions to notes textarea input
 
 4. Display Stuff
-    - Change header text (something better than Todo App)
-    - Update Tasks container section-title to include current todo name
+    - C̶h̶a̶n̶g̶e̶ h̶e̶a̶d̶e̶r̶ t̶e̶x̶t̶ (̶s̶o̶m̶e̶t̶h̶i̶n̶g̶ b̶e̶t̶t̶e̶r̶ t̶h̶a̶n̶ T̶o̶d̶o̶ A̶p̶p̶)̶
+    - U̶p̶d̶a̶t̶e̶ T̶a̶s̶k̶s̶ c̶o̶n̶t̶a̶i̶n̶e̶r̶ s̶e̶c̶t̶i̶o̶n̶-̶t̶i̶t̶l̶e̶ t̶o̶ i̶n̶c̶l̶u̶d̶e̶ c̶u̶r̶r̶e̶n̶t̶ t̶o̶d̶o̶ n̶a̶m̶e̶
     - U̶p̶d̶a̶t̶e̶ i̶n̶f̶o̶ c̶o̶n̶t̶a̶i̶n̶e̶r̶ s̶e̶c̶t̶i̶o̶n̶-̶t̶i̶t̶l̶e̶ t̶o̶ i̶n̶c̶l̶u̶d̶e̶ c̶u̶r̶r̶e̶n̶t̶ t̶a̶s̶k̶ t̶i̶t̶l̶e̶
 
 5. Storage Stuff
