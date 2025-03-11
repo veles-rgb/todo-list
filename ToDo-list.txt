@@ -20,6 +20,7 @@
     - A̶d̶d̶ c̶l̶o̶s̶e̶ b̶u̶t̶t̶o̶n̶ t̶o̶ a̶d̶d̶ t̶o̶d̶o̶ m̶o̶d̶a̶l̶
     - I̶n̶s̶t̶e̶a̶d̶ o̶f̶ u̶s̶i̶n̶g̶ p̶r̶o̶m̶p̶t̶s̶ t̶o̶ e̶d̶i̶t̶ t̶o̶d̶o̶,̶ c̶r̶e̶a̶t̶e̶ m̶o̶d̶a̶l̶ w̶i̶t̶h̶ f̶o̶r̶m̶ (̶T̶o̶d̶o̶E̶d̶i̶t̶H̶a̶n̶d̶l̶e̶r̶)̶
     - A̶d̶d̶ c̶o̶n̶f̶i̶r̶m̶a̶t̶i̶o̶n̶ b̶e̶f̶o̶r̶e̶ d̶e̶l̶e̶t̶i̶n̶g̶ t̶o̶d̶o̶
+    - If there are no tasks in a todo, todo-item-status = empty
     - Add requirements/restrictions to todo add/edit modals inputs
 
 2. Task Stuff
@@ -40,9 +41,9 @@
     - I̶n̶s̶t̶e̶a̶d̶ o̶f̶ u̶s̶i̶n̶g̶ p̶r̶o̶m̶p̶t̶s̶ t̶o̶ e̶d̶i̶t̶ t̶a̶s̶k̶,̶ c̶r̶e̶a̶t̶e̶ m̶o̶d̶a̶l̶ w̶i̶t̶h̶ f̶o̶r̶m̶ (̶t̶a̶s̶k̶E̶d̶i̶t̶H̶a̶n̶d̶l̶e̶r̶)̶
     - A̶d̶d̶ c̶o̶n̶f̶i̶r̶m̶a̶t̶i̶o̶n̶ b̶e̶f̶o̶r̶e̶ d̶e̶l̶e̶t̶i̶n̶g̶ t̶a̶s̶k̶
     - A̶d̶d̶ p̶r̶i̶o̶r̶i̶t̶y̶ c̶l̶a̶s̶s̶ t̶o̶ t̶a̶s̶k̶s̶ f̶o̶r̶ c̶h̶a̶n̶g̶i̶n̶g̶ s̶t̶y̶l̶e̶s̶ b̶a̶s̶e̶d̶ o̶n̶ p̶r̶i̶o̶r̶i̶t̶y̶
-    - Add requirements/restrictions to add/edit task modals inputs
     - W̶h̶e̶n̶ a̶ t̶a̶s̶k̶ i̶s̶ a̶d̶d̶e̶d̶ i̶t̶ c̶u̶r̶r̶e̶n̶t̶l̶y̶ d̶o̶e̶s̶n̶'̶t̶ u̶p̶d̶a̶t̶e̶ T̶O̶D̶O̶ s̶t̶a̶t̶u̶s̶ f̶r̶o̶m̶ c̶o̶m̶p̶l̶e̶t̶e̶ t̶o̶ i̶n̶c̶o̶m̶e̶p̶l̶e̶t̶e̶.̶
     f̶i̶x̶ i̶t̶
+    - Add requirements/restrictions to add/edit task modals inputs
 
 3. Info Stuff
     - *̶*̶*̶ M̶a̶k̶e̶ s̶u̶r̶e̶ e̶d̶i̶t̶ t̶a̶s̶k̶ b̶t̶n̶ i̶n̶ i̶n̶f̶o̶ d̶i̶s̶p̶l̶a̶y̶ w̶o̶r̶k̶s̶ w̶i̶t̶h̶ m̶o̶d̶a̶l̶ a̶n̶d̶ n̶o̶t̶ p̶r̶o̶m̶p̶t̶ *̶*̶*̶
@@ -66,4 +67,5 @@
 6. Styles Stuff
     - P̶i̶c̶k̶ c̶o̶l̶o̶r̶ s̶c̶h̶e̶m̶e̶
     - Mess around with fonts
-    - Modal styles
+    - M̶o̶d̶a̶l̶ s̶t̶y̶l̶e̶s̶
+    - Check that styles work the same on Chrome, Safari and Firefox
