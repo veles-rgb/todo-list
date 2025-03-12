@@ -33,7 +33,8 @@ function createAddTodoModal() {
     todoNameInput.type = "text";
     todoNameInput.name = "add-todo-name";
     todoNameInput.maxLength = "30";
-    todoNameInput.setAttribute("id", "add-todo-name")
+    todoNameInput.setAttribute("id", "add-todo-name");
+    todoNameInput.setAttribute("required", "true");
 
     const submitBtn = document.createElement("input");
     submitBtn.classList.add("modal-submit");
@@ -96,6 +97,7 @@ function createEditTodoModal(index) {
     todoNameInput.type = "text";
     todoNameInput.name = "new-todo-name";
     todoNameInput.setAttribute("id", "new-todo-name")
+    todoNameInput.setAttribute("required", "true");
     todoNameInput.maxLength = "30";
     todoNameInput.value = todo.name;
 
@@ -157,7 +159,9 @@ function createAddTaskModal(todoIndex) {
     const taskTitleInput = document.createElement("input")
     taskTitleInput.type = "text";
     taskTitleInput.name = "task-title";
+    taskTitleInput.maxLength = "20"
     taskTitleInput.setAttribute("id", "task-title");
+    taskTitleInput.setAttribute("required", "true");
 
     const taskDescLabel = document.createElement("label");
     taskDescLabel.htmlFor = "task-desc";
@@ -166,6 +170,7 @@ function createAddTaskModal(todoIndex) {
     const taskDescInput = document.createElement("input");
     taskDescInput.type = "text";
     taskDescInput.name = "task-desc";
+    taskDescInput.maxLength = "100"
     taskDescInput.setAttribute("id", "task-desc");
 
     const taskDueLabel = document.createElement("label");
@@ -176,6 +181,7 @@ function createAddTaskModal(todoIndex) {
     taskDueInput.type = "datetime-local";
     taskDueInput.name = "task-due";
     taskDueInput.setAttribute("id", "task-due");
+    taskDueInput.setAttribute("required", "true");
     // Create task priority label
     const taskPrioLabel = document.createElement("label");
     taskPrioLabel.htmlFor = "task-prio";
@@ -184,6 +190,7 @@ function createAddTaskModal(todoIndex) {
     const taskPrioInput = document.createElement("select");
     taskPrioInput.name = "task-prio";
     taskPrioInput.setAttribute("id", "task-prio");
+    taskPrioInput.setAttribute("required", "true");
     // Priority option 1 (low)
     const taskPrioOption1 = document.createElement("option");
     taskPrioOption1.classList.add("prio-option-low")
@@ -231,6 +238,14 @@ function createAddTaskModal(todoIndex) {
         const taskDesc = formData.get("task-desc");
         const taskDue = formData.get("task-due")
         const taskPrio = formData.get("task-prio");
+
+        // Regex for validating the datetime-local format (YYYY-MM-DDTHH:MM)
+        const regex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/;
+        // Check if the taskDue value matches the required format
+        if (!regex.test(taskDue)) {
+            alert("Please enter a valid date-time format (YYYY-MM-DDTHH:MM)!");
+            return; // Stop form submission if the format is invalid
+        }
 
         TodoList.getTodos()[todoIndex].tasks.push(new Task(taskTitle, taskDesc, taskDue, taskPrio));
 
@@ -281,7 +296,9 @@ function createEditTaskModal(task, taskIndex) {
     const taskTitleInput = document.createElement("input")
     taskTitleInput.type = "text";
     taskTitleInput.name = "task-title";
+    taskTitleInput.maxLength = "20"
     taskTitleInput.setAttribute("id", "task-title");
+    taskTitleInput.setAttribute("required", "true");
     taskTitleInput.value = task.title;
 
     const taskDescLabel = document.createElement("label");
@@ -291,6 +308,7 @@ function createEditTaskModal(task, taskIndex) {
     const taskDescInput = document.createElement("input");
     taskDescInput.type = "text";
     taskDescInput.name = "task-desc";
+    taskDescInput.maxLength = "100"
     taskDescInput.setAttribute("id", "task-desc");
     taskDescInput.value = task.description;
 
@@ -301,6 +319,7 @@ function createEditTaskModal(task, taskIndex) {
     const taskDueInput = document.createElement("input");
     taskDueInput.type = "datetime-local";
     taskDueInput.name = "task-due";
+    taskDueInput.setAttribute("required", "true");
     taskDueInput.setAttribute("id", "task-due");
     taskDueInput.value = task.dueDate;
 
@@ -312,6 +331,7 @@ function createEditTaskModal(task, taskIndex) {
     const taskPrioInput = document.createElement("select");
     taskPrioInput.name = "task-prio";
     taskPrioInput.setAttribute("id", "task-prio");
+    taskPrioInput.setAttribute("required", "true");
     // Priority option 1 (low)
     const taskPrioOption1 = document.createElement("option");
     taskPrioOption1.value = "!"
@@ -357,6 +377,14 @@ function createEditTaskModal(task, taskIndex) {
         const taskDesc = formData.get("task-desc");
         const taskDue = formData.get("task-due")
         const taskPrio = formData.get("task-prio");
+
+        // Regex for validating the datetime-local format (YYYY-MM-DDTHH:MM)
+        const regex = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/;
+        // Check if the taskDue value matches the required format
+        if (!regex.test(taskDue)) {
+            alert("Please enter a valid date-time format (YYYY-MM-DDTHH:MM)!");
+            return; // Stop form submission if the format is invalid
+        }
 
         task.editTask(taskTitle, taskDesc, taskDue, taskPrio);
         renderTasks();
