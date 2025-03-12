@@ -309,6 +309,7 @@ function renderInfo() {
                     infoNotesLabel.classList.add("info-notes-label")
                     infoNotesLabel.textContent = "Task Notes";
                     const infoNotes = document.createElement("textarea");
+                    infoNotes.maxLength = "2000";
                     infoNotes.classList.add("info-notes");
                     infoNotes.textContent = task.notes;
                     // Add event listener to update notes (task.notes and textarea)
