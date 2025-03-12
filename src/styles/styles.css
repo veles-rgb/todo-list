@@ -533,7 +533,8 @@ input[type=checkbox]:checked::before {
     justify-content: center;
     width: 80%;
     text-wrap: wrap;
-    word-break: break-all;
+    word-break: break-word;
+    hyphens: auto;
     font-size: 1.3rem;
     margin-bottom: 2rem;
 }
