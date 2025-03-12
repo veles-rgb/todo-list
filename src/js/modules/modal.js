@@ -32,6 +32,7 @@ function createAddTodoModal() {
     const todoNameInput = document.createElement("input");
     todoNameInput.type = "text";
     todoNameInput.name = "add-todo-name";
+    todoNameInput.maxLength = "30";
     todoNameInput.setAttribute("id", "add-todo-name")
 
     const submitBtn = document.createElement("input");
@@ -95,6 +96,7 @@ function createEditTodoModal(index) {
     todoNameInput.type = "text";
     todoNameInput.name = "new-todo-name";
     todoNameInput.setAttribute("id", "new-todo-name")
+    todoNameInput.maxLength = "30";
     todoNameInput.value = todo.name;
 
     const submitBtn = document.createElement("input");
