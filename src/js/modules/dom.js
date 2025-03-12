@@ -2,8 +2,8 @@
 import TodoList from "./todo.js";
 import { createAddTodoModal, createEditTodoModal, createAddTaskModal, createEditTaskModal } from "./modal.js";
 import { format, parse, formatDistance, differenceInSeconds } from "date-fns";
+const contentLeft = document.getElementById("content-left");
 const todoContainer = document.getElementById("todo-container");
-const addTodoBtn = document.getElementById("add-todo");
 const contentMiddle = document.getElementById("content-middle");
 const taskContainer = document.getElementById("task-container");
 const contentRight = document.getElementById("content-right");
@@ -12,6 +12,20 @@ const infoContainer = document.getElementById("info-container");
 // RENDER TODOS (left container)
 function renderTodos() {
     todoContainer.innerHTML = "";
+
+    contentLeft.appendChild(todoContainer);
+
+    // Create add todo btn
+    const addTodoBtn = document.createElement("button");
+    addTodoBtn.classList.add("add-todo-btn");
+    addTodoBtn.setAttribute("id", "add-todo");
+    addTodoBtn.textContent = "Add Todo";
+    // Attach event listener right here!
+    addTodoBtn.addEventListener("click", () => {
+        createAddTodoModal();
+    });
+
+    todoContainer.appendChild(addTodoBtn);
 
     TodoList.getTodos().forEach((todo, todoIndex) => {
         // Create todo element div
@@ -81,11 +95,6 @@ function TodoDeleteHandler(index) {
         renderInfo();
     };
 };
-
-// AddTodoBtn event listener (open modal)
-addTodoBtn.addEventListener("click", () => {
-    createAddTodoModal();
-});
 
 // RENDER TASKS (middle container)
 function renderTasks() {
