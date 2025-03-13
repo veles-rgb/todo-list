@@ -3,6 +3,7 @@ import { renderTasks, renderTodos, renderInfo } from "./dom.js";
 import { format, parse, formatDistance } from "date-fns";
 import Task from "./task.js";
 import TodoList from "./todo.js";
+import { storeTodos } from "./storage.js"
 
 // Add todo modal
 function createAddTodoModal() {
@@ -63,6 +64,8 @@ function createAddTodoModal() {
         renderTasks();
         renderInfo();
         addTodoModal.close();
+
+        storeTodos();
     });
 };
 
@@ -128,6 +131,8 @@ function createEditTodoModal(index) {
         renderTasks();
         renderInfo();
         editTodoModal.close();
+
+        storeTodos();
     });
 };
 
@@ -264,6 +269,8 @@ function createAddTaskModal(todoIndex) {
         newestTask.classList.add("active-task");
         renderInfo();
         addTaskModal.remove();
+
+        storeTodos();
     });
 };
 

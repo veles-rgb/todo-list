@@ -2,6 +2,7 @@
 import TodoList from "./todo.js";
 import { createAddTodoModal, createEditTodoModal, createAddTaskModal, createEditTaskModal } from "./modal.js";
 import { format, parse, formatDistance, differenceInSeconds } from "date-fns";
+import { storeTodos } from "./storage.js"
 const contentLeft = document.getElementById("content-left");
 const todoContainer = document.getElementById("todo-container");
 const contentMiddle = document.getElementById("content-middle");
@@ -98,6 +99,7 @@ function TodoDeleteHandler(index) {
         renderTodos();
         renderTasks();
         renderInfo();
+        storeTodos();
     };
 };
 
@@ -198,6 +200,7 @@ function renderTasks() {
                     const todoItems = document.querySelectorAll(".todo-item");
                     todoItems[todoIndex].classList.add("active-todo");
                     renderInfo();
+                    storeTodos();
                 });
                 // Update checked if status completed (for re-render)
                 if (task.status === "Completed") {
@@ -247,6 +250,7 @@ function taskDeleteHandler(todoIndex, taskIndex) {
         todoItems[todoIndex].classList.add("active-todo");
         renderTasks();
         renderInfo();
+        storeTodos();
     };
 };
 
@@ -321,10 +325,11 @@ function renderInfo() {
                     infoNotes.classList.add("info-notes");
                     infoNotes.textContent = task.notes;
                     // Add event listener to update notes (task.notes and textarea)
-                    infoNotes.addEventListener("input", updateNotes)
+                    infoNotes.addEventListener("input", updateNotes, storeTodos())
                     function updateNotes(e) {
                         infoNotes.textContent = e.target.value;
                         task.notes = e.target.value;
+                        storeTodos();
                     };
                     // Create task dueDate label and display div
                     const dueDateAndLabel = document.createElement("div");

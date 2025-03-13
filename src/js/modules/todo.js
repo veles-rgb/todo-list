@@ -43,4 +43,5 @@ class TodoList {
     };
 };
 
+export { Todo };
 export default new TodoList();
