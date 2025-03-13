@@ -40,9 +40,14 @@ function renderTodos() {
         const todoStatus = document.createElement("p");
         todoStatus.classList.add("todo-item-status");
         todoStatus.textContent = todo.status;
-        if (todo.status === "Incomplete") {
+        if (todo.tasks.length === 0) {
+            todoStatus.classList.add("empty-todo");
+            todoStatus.classList.remove("completed-todo");
+            todoStatus.classList.remove("incomplete-todo");
+            todoStatus.textContent = "Empty";
+        } else if (todo.status === "Incomplete") {
             todoStatus.classList.add("incomplete-todo");
-            todoStatus.classList.remove("completed-todo")
+            todoStatus.classList.remove("completed-todo");
         } else if (todo.status === "Completed") {
             todoStatus.classList.add("completed-todo");
             todoStatus.classList.remove("incomplete-todo");
@@ -237,6 +242,9 @@ function taskEditHandler(task, taskIndex) {
 function taskDeleteHandler(todoIndex, taskIndex) {
     if (confirm("Are you sure you want to delete this task?")) {
         TodoList.getTodos()[todoIndex].tasks[taskIndex].deleteTask(todoIndex, taskIndex);
+        renderTodos();
+        const todoItems = document.querySelectorAll(".todo-item");
+        todoItems[todoIndex].classList.add("active-todo");
         renderTasks();
         renderInfo();
     };
