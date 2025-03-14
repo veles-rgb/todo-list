@@ -175,6 +175,9 @@ input[type="submit"]:hover {
 }
 
 #todo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     margin-left: 5px;
     margin-right: 5px;
