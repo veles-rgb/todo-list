@@ -4,7 +4,7 @@
     --main-font-color: white;
     --alt-font-color: gold;
     --background-color: black;
-    --main-border-color: gold;
+    --main-border-color: rgb(255, 215, 0);
     --prio-low-color: rgba(255, 217, 0, 0.6);
     --prio-medium-color: rgba(255, 145, 0, 0.6);
     --prio-high-color: rgba(255, 0, 0, 0.5);
@@ -388,6 +388,7 @@ input[type="checkbox"] {
     height: 2.5rem;
     color: gold;
     vertical-align: middle;
+    appearance: none;
     -webkit-appearance: none;
     background: none;
     border: 0;
@@ -665,4 +666,20 @@ footer {
     justify-content: center;
     align-items: center;
     color: var(--alt-font-color);
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--alt-font-color);
+}
+
+.footer-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-div img {
+    filter: brightness(0) saturate(100%) invert(86%) sepia(9%) saturate(7442%) hue-rotate(359deg) brightness(104%) contrast(101%);
 }
