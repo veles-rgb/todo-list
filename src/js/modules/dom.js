@@ -2,7 +2,7 @@
 import TodoList from "./todo.js";
 import { createAddTodoModal, createEditTodoModal, createAddTaskModal, createEditTaskModal } from "./modal.js";
 import { format, parse, formatDistance, differenceInSeconds } from "date-fns";
-import { storeTodos } from "./storage.js"
+import { storeTodos } from "./storage.js";
 const contentLeft = document.getElementById("content-left");
 const todoContainer = document.getElementById("todo-container");
 const contentMiddle = document.getElementById("content-middle");
@@ -34,7 +34,7 @@ function renderTodos() {
         todoElement.classList.add("todo-item");
         todoElement.dataset.index = todoIndex;
         // Create todo name
-        const todoName = document.createElement("p")
+        const todoName = document.createElement("p");
         todoName.classList.add("todo-item-name");
         todoName.textContent = todo.name;
         // Create todo.status
@@ -52,24 +52,24 @@ function renderTodos() {
         } else if (todo.status === "Completed") {
             todoStatus.classList.add("completed-todo");
             todoStatus.classList.remove("incomplete-todo");
-        }
+        };
         // Create buttons div
-        const todoBtns = document.createElement("div")
-        todoBtns.classList.add("todo-buttons")
+        const todoBtns = document.createElement("div");
+        todoBtns.classList.add("todo-buttons");
         // Create edit todo btn
         const editBtn = document.createElement("button");
         editBtn.textContent = "✎";
-        editBtn.classList.add("edit-todo-btn")
+        editBtn.classList.add("edit-todo-btn");
         editBtn.addEventListener("click", () => createEditTodoModal(todoIndex));
         // Create delete todo btn
         const deleteBtn = document.createElement("button");
         deleteBtn.textContent = "X";
-        deleteBtn.classList.add("delete-todo-btn")
+        deleteBtn.classList.add("delete-todo-btn");
         deleteBtn.addEventListener("click", () => TodoDeleteHandler(todoIndex));
         // Append elements
         todoElement.appendChild(todoName);
         todoElement.appendChild(todoStatus);
-        todoElement.appendChild(todoBtns)
+        todoElement.appendChild(todoBtns);
         todoBtns.appendChild(editBtn);
         todoBtns.appendChild(deleteBtn);
         todoContainer.appendChild(todoElement);
@@ -173,8 +173,8 @@ function renderTasks() {
                     taskElement.classList.add("prio-high");
                 };
                 // Create buttons div
-                const taskButtons = document.createElement("div")
-                taskButtons.classList.add("task-buttons")
+                const taskButtons = document.createElement("div");
+                taskButtons.classList.add("task-buttons");
                 // Add edit task btn
                 const editBtn = document.createElement("button");
                 editBtn.textContent = "✎";
@@ -260,7 +260,7 @@ function renderInfo() {
     infoContainer.innerHTML = "";
 
     const todoItems = document.querySelectorAll(".todo-item");
-    const taskItems = document.querySelectorAll(".task-item")
+    const taskItems = document.querySelectorAll(".task-item");
     // Loop through todos in DOM with index
     todoItems.forEach((todo, todoIndex) => {
         // Find active todo in DOM
@@ -271,7 +271,7 @@ function renderInfo() {
                 if (taskItems[taskIndex].classList.contains("active-task")) {
                     // Create info DOM elements
                     // Render content right
-                    contentRight.style.display = "flex"
+                    contentRight.style.display = "flex";
                     // Create content right section title
                     const sectionTitle = document.createElement("h1");
                     sectionTitle.classList.add("section-title");
@@ -282,17 +282,17 @@ function renderInfo() {
                     infoStatus.textContent = task.status;
                     if (task.status === "Incomplete") {
                         infoStatus.classList.add("incomplete-task");
-                        infoStatus.classList.remove("completed-task")
+                        infoStatus.classList.remove("completed-task");
                     } else if (task.status === "Completed") {
                         infoStatus.classList.add("completed-task");
                         infoStatus.classList.remove("incomplete-task");
                     }
                     // Create title and desc div
                     const infoTitleDesc = document.createElement("div");
-                    infoTitleDesc.classList.add("info-title-desc")
+                    infoTitleDesc.classList.add("info-title-desc");
                     // Create task title and prio div
-                    const infoTitlePrioDiv = document.createElement("div")
-                    infoTitlePrioDiv.classList.add("info-title-prio")
+                    const infoTitlePrioDiv = document.createElement("div");
+                    infoTitlePrioDiv.classList.add("info-title-prio");
                     // Create task title display
                     const infoTitle = document.createElement("h2");
                     infoTitle.classList.add("info-title");
@@ -315,10 +315,10 @@ function renderInfo() {
                     infoDesc.textContent = task.description;
                     // Create info notes label and textarea div
                     const infoNotesDiv = document.createElement("div");
-                    infoNotesDiv.classList.add("info-notes-div")
+                    infoNotesDiv.classList.add("info-notes-div");
                     // Create textarea for task.notes
                     const infoNotesLabel = document.createElement("p");
-                    infoNotesLabel.classList.add("info-notes-label")
+                    infoNotesLabel.classList.add("info-notes-label");
                     infoNotesLabel.textContent = "Task Notes";
                     const infoNotes = document.createElement("textarea");
                     infoNotes.maxLength = "2000";
@@ -333,7 +333,7 @@ function renderInfo() {
                     };
                     // Create task dueDate label and display div
                     const dueDateAndLabel = document.createElement("div");
-                    dueDateAndLabel.classList.add("due-date-div")
+                    dueDateAndLabel.classList.add("due-date-div");
                     // Create task dueDate label
                     const infoDueLabel = document.createElement("p");
                     infoDueLabel.classList.add("info-due-label");
@@ -342,8 +342,8 @@ function renderInfo() {
                     const infoDue = document.createElement("p");
                     infoDue.classList.add("info-due");
                     const originalDate = task.dueDate;
-                    const date = parse(originalDate, 'yyyy-MM-dd\'T\'HH:mm', new Date())
-                    const dateResult = format(date, 'PPPp')
+                    const date = parse(originalDate, 'yyyy-MM-dd\'T\'HH:mm', new Date());
+                    const dateResult = format(date, 'PPPp');
                     infoDue.textContent = dateResult;
                     // Create buttons div
                     const infoBtns = document.createElement("div");
