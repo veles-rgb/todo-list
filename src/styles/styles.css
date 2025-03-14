@@ -214,6 +214,7 @@ input[type="submit"]:hover {
     background-color: var(--background-color);
     color: var(--alt-font-color);
     border: 1px solid var(--main-border-color);
+    border-radius: 1rem;
     margin: 1rem;
 }
 
@@ -230,6 +231,7 @@ input[type="submit"]:hover {
     justify-content: center;
     align-items: center;
     border: 1px solid var(--main-border-color);
+    border-radius: 1rem;
     margin-bottom: 0.5rem;
 }
 
@@ -272,6 +274,7 @@ input[type="submit"]:hover {
     justify-content: center;
     font-size: 1.2rem;
     color: white;
+    border-radius: 1rem;
     padding: 0.2rem;
 }
 
@@ -347,6 +350,7 @@ input[type="submit"]:hover {
     background-color: var(--background-color);
     color: var(--alt-font-color);
     border: 1px solid var(--main-border-color);
+    border-radius: 1rem;
     margin: 1rem;
     flex-shrink: 0;
 }
@@ -364,6 +368,7 @@ input[type="submit"]:hover {
     align-items: center;
     margin-bottom: 0.5rem;
     flex-shrink: 0;
+    border-radius: 1rem;
 }
 
 .task-item:hover {
@@ -444,6 +449,7 @@ input[type=checkbox]:checked::before {
     width: 10rem;
     display: flex;
     justify-content: flex-end;
+    border-radius: 1rem;
 }
 
 .edit-task-btn,
@@ -457,6 +463,14 @@ input[type=checkbox]:checked::before {
     background-color: var(--background-color);
     color: var(--alt-font-color);
     border: 1px solid var(--main-border-color);
+}
+
+.edit-task-btn {
+    border-radius: 1rem 0 0 1rem;
+}
+
+.delete-task-btn {
+    border-radius: 0 1rem 1rem 0;
 }
 
 .edit-task-btn:hover,
@@ -508,6 +522,7 @@ input[type=checkbox]:checked::before {
     align-items: center;
     font-size: 1.2rem;
     color: white;
+    border-radius: 1rem;
     margin-bottom: 1rem;
 }
 
@@ -588,6 +603,7 @@ input[type=checkbox]:checked::before {
     background-color: black;
     color: var(--main-font-color);
     border: 1px solid var(--main-border-color);
+    border-radius: 1rem;
     padding: 0.5rem 0.8rem;
     resize: none;
     font-size: 1.2rem;
