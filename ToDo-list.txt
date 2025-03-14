@@ -9,7 +9,7 @@
     - C̶o̶n̶s̶i̶d̶e̶r̶ m̶a̶k̶i̶n̶g̶ a̶ m̶o̶d̶a̶l̶ m̶o̶d̶u̶l̶e̶ i̶n̶s̶t̶e̶a̶d̶ o̶f̶ h̶a̶v̶i̶n̶g̶ i̶t̶ f̶l̶o̶o̶d̶ t̶h̶e̶ d̶o̶m̶.̶j̶s̶ c̶o̶d̶e̶
     -̶ W̶h̶e̶n̶ e̶d̶i̶t̶i̶n̶g̶ a̶ t̶a̶s̶k̶,̶ a̶u̶t̶o̶f̶i̶l̶l̶ f̶o̶r̶m̶ w̶i̶t̶h̶ c̶u̶r̶r̶e̶n̶t̶ t̶a̶s̶k̶ d̶a̶t̶a̶
         -̶D̶o̶ s̶o̶ b̶y̶ d̶o̶i̶n̶g̶ i̶n̶p̶u̶t̶.̶v̶a̶l̶u̶e̶ =̶ t̶a̶s̶k̶.̶t̶i̶t̶l̶e̶ e̶t̶c̶.̶.̶.̶
-    - Add comments to code (for readability)
+    - Add comments to code (for readability), mostly in modal.js
     - Add browser tab icon
     - Update browser tab title
 
@@ -63,12 +63,11 @@
     - U̶p̶d̶a̶t̶e̶ T̶a̶s̶k̶s̶ c̶o̶n̶t̶a̶i̶n̶e̶r̶ s̶e̶c̶t̶i̶o̶n̶-̶t̶i̶t̶l̶e̶ t̶o̶ i̶n̶c̶l̶u̶d̶e̶ c̶u̶r̶r̶e̶n̶t̶ t̶o̶d̶o̶ n̶a̶m̶e̶
     - U̶p̶d̶a̶t̶e̶ i̶n̶f̶o̶ c̶o̶n̶t̶a̶i̶n̶e̶r̶ s̶e̶c̶t̶i̶o̶n̶-̶t̶i̶t̶l̶e̶ t̶o̶ i̶n̶c̶l̶u̶d̶e̶ c̶u̶r̶r̶e̶n̶t̶ t̶a̶s̶k̶ t̶i̶t̶l̶e̶
 
-5. Storage Stuff
-    - Done!
+5. S̶t̶o̶r̶a̶g̶e̶ S̶t̶u̶f̶f̶
 
 6. Styles Stuff
     - P̶i̶c̶k̶ c̶o̶l̶o̶r̶ s̶c̶h̶e̶m̶e̶
     - Mess around with fonts
-    - Maybe add radious to borders?
+    - Maybe add radius to borders?
     - M̶o̶d̶a̶l̶ s̶t̶y̶l̶e̶s̶
     - Check that styles work the same on Chrome, Safari and Firefox
