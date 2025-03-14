@@ -64,7 +64,7 @@
     - U̶p̶d̶a̶t̶e̶ i̶n̶f̶o̶ c̶o̶n̶t̶a̶i̶n̶e̶r̶ s̶e̶c̶t̶i̶o̶n̶-̶t̶i̶t̶l̶e̶ t̶o̶ i̶n̶c̶l̶u̶d̶e̶ c̶u̶r̶r̶e̶n̶t̶ t̶a̶s̶k̶ t̶i̶t̶l̶e̶
 
 5. Storage Stuff
-    - No idea yet, leave that for later.
+    - Done!
 
 6. Styles Stuff
     - P̶i̶c̶k̶ c̶o̶l̶o̶r̶ s̶c̶h̶e̶m̶e̶
