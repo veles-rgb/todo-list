@@ -112,7 +112,7 @@ function renderTasks() {
     todoItems.forEach((item, todoIndex) => {
         if (item.classList.contains("active-todo")) {
             // Render content middle
-            contentMiddle.style.display = "block";
+            contentMiddle.style.display = "flex";
             // Create content middle section title
             const sectionTitle = document.createElement("h1");
             sectionTitle.classList.add("section-title");
@@ -367,8 +367,8 @@ function renderInfo() {
                     infoContainer.appendChild(infoStatus);
                     infoContainer.appendChild(infoTitleDesc);
                     infoTitleDesc.appendChild(infoTitlePrioDiv)
-                    infoTitlePrioDiv.appendChild(infoTitle);
                     infoTitlePrioDiv.appendChild(infoPrio);
+                    infoTitlePrioDiv.appendChild(infoTitle);
                     infoTitleDesc.appendChild(infoDesc);
                     infoContainer.appendChild(infoNotesDiv)
                     infoNotesDiv.appendChild(infoNotesLabel);
