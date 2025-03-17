@@ -10,8 +10,8 @@
     -̶ W̶h̶e̶n̶ e̶d̶i̶t̶i̶n̶g̶ a̶ t̶a̶s̶k̶,̶ a̶u̶t̶o̶f̶i̶l̶l̶ f̶o̶r̶m̶ w̶i̶t̶h̶ c̶u̶r̶r̶e̶n̶t̶ t̶a̶s̶k̶ d̶a̶t̶a̶
         -̶D̶o̶ s̶o̶ b̶y̶ d̶o̶i̶n̶g̶ i̶n̶p̶u̶t̶.̶v̶a̶l̶u̶e̶ =̶ t̶a̶s̶k̶.̶t̶i̶t̶l̶e̶ e̶t̶c̶.̶.̶.̶
     - Add comments to code (for readability), mostly in modal.js
-    - Add browser tab icon
-    - Update browser tab title
+    - A̶d̶d̶ b̶r̶o̶w̶s̶e̶r̶ t̶a̶b̶ i̶c̶o̶n̶
+    - U̶p̶d̶a̶t̶e̶ b̶r̶o̶w̶s̶e̶r̶ t̶a̶b̶ t̶i̶t̶l̶e̶
     - Edit README
 
 1. Todo Stuff
