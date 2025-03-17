@@ -11,7 +11,7 @@ class Task {
         this.status = "Incomplete"; // Default status
         this.notes = "";
     };
-
+    // Edit task method
     editTask(newTitle, newDescription, newDueDate, newPriority) {
         this.title = newTitle;
         this.description = newDescription;
